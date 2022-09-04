@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 double** read_arr(char* filename, size_t x_size, size_t y_size) {
 
@@ -132,9 +133,27 @@ int main(int argc, char** argv) {
 
     double** arr = read_arr("./arr.dat", MAX_DIM, MAX_DIM);
     
-//    printf("%lf\n", avg_2d_row(arr, MAX_DIM, MAX_DIM, 100));
-//    printf("%lf\n", avg_2d_col(arr, MAX_DIM, MAX_DIM, 100));
-    printf("%lf\n", avg_1d(arr[0], MAX_DIM * MAX_DIM, 100));
+	double row_2d, col_2d, row_1d;
+	clock_t begin[3], end[3];
+
+	begin[0] = clock();
+	row_2d = avg_2d_row(arr, MAX_DIM, MAX_DIM, 100);
+	end[0] = clock();
+
+	begin[1] = clock();
+	col_2d = avg_2d_col(arr, MAX_DIM, MAX_DIM, 100);
+	end[1] = clock();
+
+	begin[2] = clock();
+	row_1d = avg_1d(arr[0], MAX_DIM * MAX_DIM, 100);
+	end[2] = clock();
+
+	printf("%lf\n", row_2d);
+    printf("%lf\n", col_2d);
+    printf("%lf\n", row_1d);
+
+	for (size_t i = 0; i < 3; ++i)
+		printf("%lf sec\n", ((double) (end[i] - begin[i])) / CLOCKS_PER_SEC);
 
     free(arr);
 

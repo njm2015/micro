@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-O3
+CFLAGS=-O3 -g
 LDFLAGS=
 TARGET=gen_data_bin
 
@@ -19,6 +19,6 @@ $(TARGET): gen_data.o
 
 clean:
 	rm -rf $(TARGET)
-	rm -rf $(TARGET).o
+	rm -rf *.o
 	rm -rf arr.dat
 

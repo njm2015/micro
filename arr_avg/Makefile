@@ -2,7 +2,7 @@ LIKWID_LIB=/usr/local/lib/
 LIKWID_INCLUDE=/usr/local/incude/
 
 CC=gcc
-CFLAGS=-pg
+CFLAGS=-pg -g
 LDFLAGS=
 TARGET=arr_avg_bin
 
@@ -16,7 +16,7 @@ all: clean $(TARGET) arr.dat
 	#$(TARGET)
 
 arr.dat:
-	make MAX_DIM=$(MAX_DIM) -C ../gen_data && bash -c ../gen_data/gen_data
+	make MAX_DIM=$(MAX_DIM) -C ../gen_data && bash -c ../gen_data/gen_data_bin
 
 $(TARGET) : arr_avg.c
 	$(CC) $(DEFINES) $(CFLAGS) $^ -o $@ $(LDFLAGS)
