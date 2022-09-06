@@ -5,7 +5,7 @@ class ArrayTable(Scene):
 
 	def construct(self):
 	
-		self.camera.background_color = WHITE
+		self.camera.background_color = '#ffffff'
 
 		#rand_arr = [[random.randint(-9, 9) for i in range(10)] for j in range(10)]
 		empty_arr = [['.' for i in range(31)] for j in range(15)]
