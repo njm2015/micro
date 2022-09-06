@@ -51,7 +51,10 @@ So a 64x64 matrix of doubles perfectly fits in our core's L1 cache! Still note t
 So let's try increasing our N. We know that an array with dimensions greater than 64x64 will no longer fit in our L1 cache, so let us graph the number of misses for each method as we increase N.
 
 #### N = 128-256
-![L1 DTLB Misses](img/128-256.png "L1 DTLB Misses")
+<p align="center">
+	<img src="img/128-256.png" alt="L1 DTLB Misses")/>
+</p>
+<!--![L1 DTLB Misses](img/128-256.png "L1 DTLB Misses")-->
 
 The image shows that we still don't have a discernible difference in L1 cache misses between the 3 methods used. We know that the array is larger than the 32K our core has allocated to the L1 cache, but why isn't the `avg_2d_col` method showing more cache misses than our other 2 implementations?
 
