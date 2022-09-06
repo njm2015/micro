@@ -4,7 +4,9 @@ import random
 class ArrayTable(Scene):
 
 	def construct(self):
-		
+	
+		self.camera.background_color = WHITE
+
 		#rand_arr = [[random.randint(-9, 9) for i in range(10)] for j in range(10)]
 		empty_arr = [['.' for i in range(31)] for j in range(15)]
 
@@ -12,8 +14,13 @@ class ArrayTable(Scene):
 			 	empty_arr,	
 				include_outer_lines=True,
 				h_buff=0.5,
-				v_buff=0.5)
-		t0.scale(0.35)
+				v_buff=0.5,
+				entries_background_color=BLACK,
+				)
+		t0.scale(0.5)
+		t0.set_column_colors(*(BLACK for i in range(31)))
+		t0.get_horizontal_lines().set_color(BLACK)
+		t0.get_vertical_lines().set_color(BLACK)
 		self.add(t0)
 
 		#t0.get_columns[0].color = RED
