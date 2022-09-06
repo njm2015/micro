@@ -1,6 +1,26 @@
+#include <likwid-marker.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+
+void clear_cache() {
+
+	const long size = 1 * 1024 * 1024;		// 1MB (local L1d is 128kb)
+	long* c = (long* ) malloc(size * sizeof(long));
+
+	for (size_t i = 0; i < 0xff; ++i) {
+		for (size_t j = 0; j < size; ++j) {
+			
+			c[j] = rand();
+	
+		}
+	}
+
+	free(c);
+
+}
+
 
 double** read_arr(char* filename, size_t x_size, size_t y_size) {
 
@@ -131,29 +151,38 @@ double avg_2d_col(double** arr, size_t x_dim, size_t y_dim, size_t ntimes) {
 
 int main(int argc, char** argv) {
 
+	LIKWID_MARKER_INIT;
+
     double** arr = read_arr("./arr.dat", MAX_DIM, MAX_DIM);
-    
 	double row_2d, col_2d, row_1d;
-	clock_t begin[3], end[3];
 
-	begin[0] = clock();
-	row_2d = avg_2d_row(arr, MAX_DIM, MAX_DIM, 100);
-	end[0] = clock();
+	LIKWID_MARKER_REGISTER("row2d");
+	LIKWID_MARKER_REGISTER("col2d");
+	LIKWID_MARKER_REGISTER("row1d");	
 
-	begin[1] = clock();
-	col_2d = avg_2d_col(arr, MAX_DIM, MAX_DIM, 100);
-	end[1] = clock();
+	clear_cache();
 
-	begin[2] = clock();
-	row_1d = avg_1d(arr[0], MAX_DIM * MAX_DIM, 100);
-	end[2] = clock();
+	LIKWID_MARKER_START("row2d");
+	row_2d = avg_2d_row(arr, MAX_DIM, MAX_DIM, 1);
+	LIKWID_MARKER_STOP("row2d");
+
+	clear_cache();
+
+	LIKWID_MARKER_START("col2d");
+	col_2d = avg_2d_col(arr, MAX_DIM, MAX_DIM, 1);
+	LIKWID_MARKER_STOP("col2d");
+
+	clear_cache();
+
+	LIKWID_MARKER_START("row1d");
+	row_1d = avg_1d(arr[0], MAX_DIM * MAX_DIM, 1);
+	LIKWID_MARKER_STOP("row1d");
+
+	LIKWID_MARKER_CLOSE;
 
 	printf("%lf\n", row_2d);
     printf("%lf\n", col_2d);
     printf("%lf\n", row_1d);
-
-	for (size_t i = 0; i < 3; ++i)
-		printf("%lf sec\n", ((double) (end[i] - begin[i])) / CLOCKS_PER_SEC);
 
     free(arr);
 

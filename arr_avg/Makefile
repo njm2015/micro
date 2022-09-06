@@ -2,8 +2,8 @@ LIKWID_LIB=/usr/local/lib/
 LIKWID_INCLUDE=/usr/local/incude/
 
 CC=gcc
-CFLAGS=-pg -g
-LDFLAGS=
+CFLAGS=-pg -g -DLIKWID_PERFMON -L$(LIKWID_LIB) -I$(LIKWID_INCLUDE)
+LDFLAGS=-llikwid
 TARGET=arr_avg_bin
 
 ifndef MAX_DIM
