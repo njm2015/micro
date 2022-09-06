@@ -12,5 +12,6 @@ if __name__ == '__main__':
 	plt.plot(x, y_1d_row, label='row1d')
 	plt.xlabel('N')
 	plt.ylabel('L1 DTLB Misses')
+	plt.title('Cache Misses in Traversal of an NxN Array')
 	plt.legend()
 	plt.show()
