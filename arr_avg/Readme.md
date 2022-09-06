@@ -51,4 +51,4 @@ So a 64x64 matrix of doubles perfectly fits in our core's L1 cache! Still note t
 So let's try increasing our N. We know that an array with dimensions greater than 64x64 will no longer fit in our L1 cache, so let us graph the number of misses for each method as we increase N.
 
 #### N = 128-256
-![L1 DTLB Misses](img/128-256.png "L1 DTLB Misses)
+![L1 DTLB Misses](img/128-256.png "L1 DTLB Misses")
