@@ -52,3 +52,9 @@ So let's try increasing our N. We know that an array with dimensions greater tha
 
 #### N = 128-256
 ![L1 DTLB Misses](img/128-256.png "L1 DTLB Misses")
+
+The image shows that we still don't have a discernible difference in L1 cache misses between the 3 methods used. We know that the array is larger than the 32K our core has allocated to the L1 cache, but why isn't the `avg_2d_col` method showing more cache misses than our other 2 implementations?
+
+The reason is that our `avg_2d_col` method still takes advantage of spatial locality. The below animation shows how our array is being loaded into the cache. When we reach the last row of the matrix in our column traversal, we've only read `nrows * 8` values into the cache before we read a value in row 0 again. 
+
+![Cache Loading for Column Traversal](img/ArrayTable.mp4 "Cache Loading for Column Traversal") 

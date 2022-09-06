@@ -4,3 +4,5 @@
 **/*.out
 **/*.dis
 **/*.o
+**/media/
+**/__pycache__/
