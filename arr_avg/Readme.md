@@ -52,9 +52,8 @@ So let's try increasing our N. We know that an array with dimensions greater tha
 
 #### N = 128-256
 <p align="center">
-	<img src="img/128-256.png" alt="L1 DTLB Misses"/>
+	<img src="img/128-256.png" alt="L1 DTLB Misses (N=128-256)"/>
 </p>
-<!--![L1 DTLB Misses](img/128-256.png "L1 DTLB Misses")-->
 
 The image shows that we still don't have a discernible difference in L1 cache misses between the 3 methods used. We know that the array is larger than the 32K our core has allocated to the L1 cache, but why isn't the `avg_2d_col` method showing more cache misses than our other 2 implementations?
 
@@ -63,4 +62,17 @@ The reason is that our `avg_2d_col` method still takes advantage of spatial loca
 <p align="center">
 	<img src="img/ArrayTable.gif" alt="Cache Loading for Column Traversal" />
 </p>
-<!--![Cache Loading for Column Traversal](img/ArrayTable.gif "Cache Loading for Column Traversal")-->
+
+So in order to start seeing the worse performance, it's not the matrix itself that needs to be larger than the 32K region, but just the number of rows times the cache line size (the red boundary in the above animation). So if we calculate 
+~~~
+[L1 cache] / [cache line size] = [n_rows]
+~~~
+this will tell us how many rows it will take in order for us to fully saturate (without guarantees due to set associativity) the L1 cache. My cache is 32K and my cache line is 64 bytes, so we get
+~~~
+32K / 64B = 500 rows
+~~~
+This should be the number of rows where increasing past this, we start to see the cache misses of `avg_2d_row` and `avg_2d_col` diverge. Let's graph this and see:
+
+<p align="center">
+	<img src="img/500-950.png" alt="L1 DTLB Misses (N=500-950)" />
+</p>
