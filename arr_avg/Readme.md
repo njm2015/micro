@@ -61,6 +61,6 @@ The image shows that we still don't have a discernible difference in L1 cache mi
 The reason is that our `avg_2d_col` method still takes advantage of spatial locality. The below animation shows how our array is being loaded into the cache. When we reach the last row of the matrix in our column traversal, we've only read `nrows * 8` values into the cache before we read a value in row 0 again. 
 
 <p align="center">
-	<img src="img/ArrayTable.gif" alt="Cache Loading for Column Traversal" width="40vw"/>
+	<img src="img/ArrayTable.gif" alt="Cache Loading for Column Traversal" width="100%"/>
 </p>
 <!--![Cache Loading for Column Traversal](img/ArrayTable.gif "Cache Loading for Column Traversal")-->
