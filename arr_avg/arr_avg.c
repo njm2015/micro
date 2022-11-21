@@ -2,17 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <papi.h>
 
 
 void clear_cache() {
 
-	const long size = 1 * 1024 * 1024;		// 1MB (local L1d is 128kb)
+	const long size = 8 * 1024 * 1024;		// 1MB (local L1d is 128kb)
 	long* c = (long* ) malloc(size * sizeof(long));
 
 	for (size_t i = 0; i < 0xff; ++i) {
-		for (size_t j = 0; j < size; ++j) {
-			
-			c[j] = rand();
+		for (size_t j = 1; j < size; ++j) {
+		
+			c[j] = c[j-1];
+			c[j-1] = rand();
 	
 		}
 	}
@@ -153,7 +155,7 @@ int main(int argc, char** argv) {
 
 	LIKWID_MARKER_INIT;
 
-    double** arr = read_arr("./arr.dat", MAX_DIM, MAX_DIM);
+    double** arr = read_arr("./arr.dat", MAX_DIMX, MAX_DIMY);
 	double row_2d, col_2d, row_1d;
 
 	LIKWID_MARKER_REGISTER("row2d");
@@ -163,19 +165,19 @@ int main(int argc, char** argv) {
 	clear_cache();
 
 	LIKWID_MARKER_START("row2d");
-	row_2d = avg_2d_row(arr, MAX_DIM, MAX_DIM, 1);
+	row_2d = avg_2d_row(arr, MAX_DIMX, MAX_DIMY, 1);
 	LIKWID_MARKER_STOP("row2d");
 
 	clear_cache();
 
 	LIKWID_MARKER_START("col2d");
-	col_2d = avg_2d_col(arr, MAX_DIM, MAX_DIM, 1);
+	col_2d = avg_2d_col(arr, MAX_DIMX, MAX_DIMY, 1);
 	LIKWID_MARKER_STOP("col2d");
 
 	clear_cache();
 
 	LIKWID_MARKER_START("row1d");
-	row_1d = avg_1d(arr[0], MAX_DIM * MAX_DIM, 1);
+	row_1d = avg_1d(arr[0], MAX_DIMX * MAX_DIMY, 1);
 	LIKWID_MARKER_STOP("row1d");
 
 	LIKWID_MARKER_CLOSE;

@@ -15,16 +15,16 @@ double randfrom(double min, double max) {
 
 void gen_array_contiguous() {
 
-    double** arr = malloc(sizeof(double) * (MAX_DIM * MAX_DIM) + sizeof(double*) * MAX_DIM);
-    double* arr_start = (double*) arr + MAX_DIM;
+    double** arr = malloc(sizeof(double) * (MAX_DIMX * MAX_DIMY) + sizeof(double*) * MAX_DIMY);
+    double* arr_start = (double*) arr + MAX_DIMY;
 
-    for (size_t i = 0; i < MAX_DIM; ++i)
+    for (size_t i = 0; i < MAX_DIMY; ++i)
         *(arr + i) = arr_start + i;
 
     
     srand(time(NULL));
-    double* idx = (double*) arr + MAX_DIM;
-    double* end_idx = idx + (MAX_DIM * MAX_DIM);
+    double* idx = (double*) arr + MAX_DIMY;
+    double* end_idx = idx + (MAX_DIMX * MAX_DIMY);
     
     for (; idx < end_idx; ++idx) {
        *idx = randfrom(VALUE_MIN, VALUE_MAX);
@@ -32,7 +32,7 @@ void gen_array_contiguous() {
     }
 
     FILE *f = fopen("arr.dat", "wb");
-    fwrite(arr_start, sizeof(double), MAX_DIM * MAX_DIM, f);
+    fwrite(arr_start, sizeof(double), MAX_DIMX * MAX_DIMY, f);
 
     fclose(f);
     free(arr);
