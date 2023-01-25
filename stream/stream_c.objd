@@ -1,0 +1,1621 @@
+
+stream_c.exe:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	f3 0f 1e fa          	endbr64 
+    1004:	48 83 ec 08          	sub    rsp,0x8
+    1008:	48 8b 05 d9 3f 00 00 	mov    rax,QWORD PTR [rip+0x3fd9]        # 4fe8 <__gmon_start__>
+    100f:	48 85 c0             	test   rax,rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   rax
+    1016:	48 83 c4 08          	add    rsp,0x8
+    101a:	c3                   	ret    
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 82 3f 00 00    	push   QWORD PTR [rip+0x3f82]        # 4fa8 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	f2 ff 25 83 3f 00 00 	bnd jmp QWORD PTR [rip+0x3f83]        # 4fb0 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102d:	0f 1f 00             	nop    DWORD PTR [rax]
+    1030:	f3 0f 1e fa          	endbr64 
+    1034:	68 00 00 00 00       	push   0x0
+    1039:	f2 e9 e1 ff ff ff    	bnd jmp 1020 <.plt>
+    103f:	90                   	nop
+    1040:	f3 0f 1e fa          	endbr64 
+    1044:	68 01 00 00 00       	push   0x1
+    1049:	f2 e9 d1 ff ff ff    	bnd jmp 1020 <.plt>
+    104f:	90                   	nop
+    1050:	f3 0f 1e fa          	endbr64 
+    1054:	68 02 00 00 00       	push   0x2
+    1059:	f2 e9 c1 ff ff ff    	bnd jmp 1020 <.plt>
+    105f:	90                   	nop
+    1060:	f3 0f 1e fa          	endbr64 
+    1064:	68 03 00 00 00       	push   0x3
+    1069:	f2 e9 b1 ff ff ff    	bnd jmp 1020 <.plt>
+    106f:	90                   	nop
+
+Disassembly of section .plt.got:
+
+0000000000001070 <__cxa_finalize@plt>:
+    1070:	f3 0f 1e fa          	endbr64 
+    1074:	f2 ff 25 7d 3f 00 00 	bnd jmp QWORD PTR [rip+0x3f7d]        # 4ff8 <__cxa_finalize@GLIBC_2.2.5>
+    107b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+Disassembly of section .plt.sec:
+
+0000000000001080 <puts@plt>:
+    1080:	f3 0f 1e fa          	endbr64 
+    1084:	f2 ff 25 2d 3f 00 00 	bnd jmp QWORD PTR [rip+0x3f2d]        # 4fb8 <puts@GLIBC_2.2.5>
+    108b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+0000000000001090 <__stack_chk_fail@plt>:
+    1090:	f3 0f 1e fa          	endbr64 
+    1094:	f2 ff 25 25 3f 00 00 	bnd jmp QWORD PTR [rip+0x3f25]        # 4fc0 <__stack_chk_fail@GLIBC_2.4>
+    109b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+00000000000010a0 <printf@plt>:
+    10a0:	f3 0f 1e fa          	endbr64 
+    10a4:	f2 ff 25 1d 3f 00 00 	bnd jmp QWORD PTR [rip+0x3f1d]        # 4fc8 <printf@GLIBC_2.2.5>
+    10ab:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+00000000000010b0 <gettimeofday@plt>:
+    10b0:	f3 0f 1e fa          	endbr64 
+    10b4:	f2 ff 25 15 3f 00 00 	bnd jmp QWORD PTR [rip+0x3f15]        # 4fd0 <gettimeofday@GLIBC_2.2.5>
+    10bb:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+Disassembly of section .text:
+
+00000000000010c0 <_start>:
+    10c0:	f3 0f 1e fa          	endbr64 
+    10c4:	31 ed                	xor    ebp,ebp
+    10c6:	49 89 d1             	mov    r9,rdx
+    10c9:	5e                   	pop    rsi
+    10ca:	48 89 e2             	mov    rdx,rsp
+    10cd:	48 83 e4 f0          	and    rsp,0xfffffffffffffff0
+    10d1:	50                   	push   rax
+    10d2:	54                   	push   rsp
+    10d3:	4c 8d 05 f6 14 00 00 	lea    r8,[rip+0x14f6]        # 25d0 <__libc_csu_fini>
+    10da:	48 8d 0d 7f 14 00 00 	lea    rcx,[rip+0x147f]        # 2560 <__libc_csu_init>
+    10e1:	48 8d 3d c1 00 00 00 	lea    rdi,[rip+0xc1]        # 11a9 <main>
+    10e8:	ff 15 f2 3e 00 00    	call   QWORD PTR [rip+0x3ef2]        # 4fe0 <__libc_start_main@GLIBC_2.2.5>
+    10ee:	f4                   	hlt    
+    10ef:	90                   	nop
+
+00000000000010f0 <deregister_tm_clones>:
+    10f0:	48 8d 3d 89 3f 00 00 	lea    rdi,[rip+0x3f89]        # 5080 <__TMC_END__>
+    10f7:	48 8d 05 82 3f 00 00 	lea    rax,[rip+0x3f82]        # 5080 <__TMC_END__>
+    10fe:	48 39 f8             	cmp    rax,rdi
+    1101:	74 15                	je     1118 <deregister_tm_clones+0x28>
+    1103:	48 8b 05 ce 3e 00 00 	mov    rax,QWORD PTR [rip+0x3ece]        # 4fd8 <_ITM_deregisterTMCloneTable>
+    110a:	48 85 c0             	test   rax,rax
+    110d:	74 09                	je     1118 <deregister_tm_clones+0x28>
+    110f:	ff e0                	jmp    rax
+    1111:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+    1118:	c3                   	ret    
+    1119:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+0000000000001120 <register_tm_clones>:
+    1120:	48 8d 3d 59 3f 00 00 	lea    rdi,[rip+0x3f59]        # 5080 <__TMC_END__>
+    1127:	48 8d 35 52 3f 00 00 	lea    rsi,[rip+0x3f52]        # 5080 <__TMC_END__>
+    112e:	48 29 fe             	sub    rsi,rdi
+    1131:	48 89 f0             	mov    rax,rsi
+    1134:	48 c1 ee 3f          	shr    rsi,0x3f
+    1138:	48 c1 f8 03          	sar    rax,0x3
+    113c:	48 01 c6             	add    rsi,rax
+    113f:	48 d1 fe             	sar    rsi,1
+    1142:	74 14                	je     1158 <register_tm_clones+0x38>
+    1144:	48 8b 05 a5 3e 00 00 	mov    rax,QWORD PTR [rip+0x3ea5]        # 4ff0 <_ITM_registerTMCloneTable>
+    114b:	48 85 c0             	test   rax,rax
+    114e:	74 08                	je     1158 <register_tm_clones+0x38>
+    1150:	ff e0                	jmp    rax
+    1152:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+    1158:	c3                   	ret    
+    1159:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+0000000000001160 <__do_global_dtors_aux>:
+    1160:	f3 0f 1e fa          	endbr64 
+    1164:	80 3d 15 3f 00 00 00 	cmp    BYTE PTR [rip+0x3f15],0x0        # 5080 <__TMC_END__>
+    116b:	75 2b                	jne    1198 <__do_global_dtors_aux+0x38>
+    116d:	55                   	push   rbp
+    116e:	48 83 3d 82 3e 00 00 	cmp    QWORD PTR [rip+0x3e82],0x0        # 4ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1175:	00 
+    1176:	48 89 e5             	mov    rbp,rsp
+    1179:	74 0c                	je     1187 <__do_global_dtors_aux+0x27>
+    117b:	48 8b 3d 86 3e 00 00 	mov    rdi,QWORD PTR [rip+0x3e86]        # 5008 <__dso_handle>
+    1182:	e8 e9 fe ff ff       	call   1070 <__cxa_finalize@plt>
+    1187:	e8 64 ff ff ff       	call   10f0 <deregister_tm_clones>
+    118c:	c6 05 ed 3e 00 00 01 	mov    BYTE PTR [rip+0x3eed],0x1        # 5080 <__TMC_END__>
+    1193:	5d                   	pop    rbp
+    1194:	c3                   	ret    
+    1195:	0f 1f 00             	nop    DWORD PTR [rax]
+    1198:	c3                   	ret    
+    1199:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+00000000000011a0 <frame_dummy>:
+    11a0:	f3 0f 1e fa          	endbr64 
+    11a4:	e9 77 ff ff ff       	jmp    1120 <register_tm_clones>
+
+00000000000011a9 <main>:
+#ifdef _OPENMP
+extern int omp_get_num_threads();
+#endif
+int
+main()
+    {
+    11a9:	f3 0f 1e fa          	endbr64 
+    11ad:	55                   	push   rbp
+    11ae:	48 89 e5             	mov    rbp,rsp
+    11b1:	48 81 ec c0 02 00 00 	sub    rsp,0x2c0
+    11b8:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+    11bf:	00 00 
+    11c1:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+    11c5:	31 c0                	xor    eax,eax
+    STREAM_TYPE		scalar;
+    double		t, times[4][NTIMES];
+
+    /* --- SETUP --- determine precision and check timing --- */
+
+    printf(HLINE);
+    11c7:	48 8d 3d 72 1e 00 00 	lea    rdi,[rip+0x1e72]        # 3040 <_IO_stdin_used+0x40>
+    11ce:	e8 ad fe ff ff       	call   1080 <puts@plt>
+    printf("STREAM version $Revision: 5.10 $\n");
+    11d3:	48 8d 3d a6 1e 00 00 	lea    rdi,[rip+0x1ea6]        # 3080 <_IO_stdin_used+0x80>
+    11da:	e8 a1 fe ff ff       	call   1080 <puts@plt>
+    printf(HLINE);
+    11df:	48 8d 3d 5a 1e 00 00 	lea    rdi,[rip+0x1e5a]        # 3040 <_IO_stdin_used+0x40>
+    11e6:	e8 95 fe ff ff       	call   1080 <puts@plt>
+    BytesPerWord = sizeof(STREAM_TYPE);
+    11eb:	c7 85 54 fd ff ff 08 	mov    DWORD PTR [rbp-0x2ac],0x8
+    11f2:	00 00 00 
+    printf("This system uses %d bytes per array element.\n",
+    11f5:	8b 85 54 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2ac]
+    11fb:	89 c6                	mov    esi,eax
+    11fd:	48 8d 3d a4 1e 00 00 	lea    rdi,[rip+0x1ea4]        # 30a8 <_IO_stdin_used+0xa8>
+    1204:	b8 00 00 00 00       	mov    eax,0x0
+    1209:	e8 92 fe ff ff       	call   10a0 <printf@plt>
+	BytesPerWord);
+
+    printf(HLINE);
+    120e:	48 8d 3d 2b 1e 00 00 	lea    rdi,[rip+0x1e2b]        # 3040 <_IO_stdin_used+0x40>
+    1215:	e8 66 fe ff ff       	call   1080 <puts@plt>
+    printf("      This version of the code uses the preprocesor variable STREAM_ARRAY_SIZE to control the array size\n");
+    printf("      Reverting to default value of STREAM_ARRAY_SIZE=%llu\n",(unsigned long long) STREAM_ARRAY_SIZE);
+    printf("*****  WARNING: ******\n");
+#endif
+
+    printf("Array size = %llu (elements), Offset = %d (elements)\n" , (unsigned long long) STREAM_ARRAY_SIZE, OFFSET);
+    121a:	ba 00 00 00 00       	mov    edx,0x0
+    121f:	be 00 b4 c4 04       	mov    esi,0x4c4b400
+    1224:	48 8d 3d ad 1e 00 00 	lea    rdi,[rip+0x1ead]        # 30d8 <_IO_stdin_used+0xd8>
+    122b:	b8 00 00 00 00       	mov    eax,0x0
+    1230:	e8 6b fe ff ff       	call   10a0 <printf@plt>
+    printf("Memory per array = %.1f MiB (= %.1f GiB).\n", 
+    1235:	f2 0f 2a 8d 54 fd ff 	cvtsi2sd xmm1,DWORD PTR [rbp-0x2ac]
+    123c:	ff 
+    123d:	f2 0f 10 05 03 24 00 	movsd  xmm0,QWORD PTR [rip+0x2403]        # 3648 <_IO_stdin_used+0x648>
+    1244:	00 
+    1245:	66 0f 28 d1          	movapd xmm2,xmm1
+    1249:	f2 0f 59 d0          	mulsd  xmm2,xmm0
+    124d:	f2 0f 2a 8d 54 fd ff 	cvtsi2sd xmm1,DWORD PTR [rbp-0x2ac]
+    1254:	ff 
+    1255:	f2 0f 10 05 f3 23 00 	movsd  xmm0,QWORD PTR [rip+0x23f3]        # 3650 <_IO_stdin_used+0x650>
+    125c:	00 
+    125d:	f2 0f 59 c1          	mulsd  xmm0,xmm1
+    1261:	66 0f 28 ca          	movapd xmm1,xmm2
+    1265:	48 8d 3d a4 1e 00 00 	lea    rdi,[rip+0x1ea4]        # 3110 <_IO_stdin_used+0x110>
+    126c:	b8 02 00 00 00       	mov    eax,0x2
+    1271:	e8 2a fe ff ff       	call   10a0 <printf@plt>
+	BytesPerWord * ( (double) STREAM_ARRAY_SIZE / 1024.0/1024.0),
+	BytesPerWord * ( (double) STREAM_ARRAY_SIZE / 1024.0/1024.0/1024.0));
+    printf("Total memory required = %.1f MiB (= %.1f GiB).\n",
+	(3.0 * BytesPerWord) * ( (double) STREAM_ARRAY_SIZE / 1024.0/1024.),
+	(3.0 * BytesPerWord) * ( (double) STREAM_ARRAY_SIZE / 1024.0/1024./1024.));
+    1276:	f2 0f 2a 8d 54 fd ff 	cvtsi2sd xmm1,DWORD PTR [rbp-0x2ac]
+    127d:	ff 
+    127e:	f2 0f 10 05 d2 23 00 	movsd  xmm0,QWORD PTR [rip+0x23d2]        # 3658 <_IO_stdin_used+0x658>
+    1285:	00 
+    1286:	f2 0f 59 c8          	mulsd  xmm1,xmm0
+    printf("Total memory required = %.1f MiB (= %.1f GiB).\n",
+    128a:	f2 0f 10 05 b6 23 00 	movsd  xmm0,QWORD PTR [rip+0x23b6]        # 3648 <_IO_stdin_used+0x648>
+    1291:	00 
+    1292:	66 0f 28 d1          	movapd xmm2,xmm1
+    1296:	f2 0f 59 d0          	mulsd  xmm2,xmm0
+	(3.0 * BytesPerWord) * ( (double) STREAM_ARRAY_SIZE / 1024.0/1024.),
+    129a:	f2 0f 2a 8d 54 fd ff 	cvtsi2sd xmm1,DWORD PTR [rbp-0x2ac]
+    12a1:	ff 
+    12a2:	f2 0f 10 05 ae 23 00 	movsd  xmm0,QWORD PTR [rip+0x23ae]        # 3658 <_IO_stdin_used+0x658>
+    12a9:	00 
+    12aa:	f2 0f 59 c8          	mulsd  xmm1,xmm0
+    printf("Total memory required = %.1f MiB (= %.1f GiB).\n",
+    12ae:	f2 0f 10 05 9a 23 00 	movsd  xmm0,QWORD PTR [rip+0x239a]        # 3650 <_IO_stdin_used+0x650>
+    12b5:	00 
+    12b6:	f2 0f 59 c1          	mulsd  xmm0,xmm1
+    12ba:	66 0f 28 ca          	movapd xmm1,xmm2
+    12be:	48 8d 3d 7b 1e 00 00 	lea    rdi,[rip+0x1e7b]        # 3140 <_IO_stdin_used+0x140>
+    12c5:	b8 02 00 00 00       	mov    eax,0x2
+    12ca:	e8 d1 fd ff ff       	call   10a0 <printf@plt>
+    printf("Each kernel will be executed %d times.\n", NTIMES);
+    12cf:	be 14 00 00 00       	mov    esi,0x14
+    12d4:	48 8d 3d 95 1e 00 00 	lea    rdi,[rip+0x1e95]        # 3170 <_IO_stdin_used+0x170>
+    12db:	b8 00 00 00 00       	mov    eax,0x0
+    12e0:	e8 bb fd ff ff       	call   10a0 <printf@plt>
+    printf(" The *best* time for each kernel (excluding the first iteration)\n"); 
+    12e5:	48 8d 3d ac 1e 00 00 	lea    rdi,[rip+0x1eac]        # 3198 <_IO_stdin_used+0x198>
+    12ec:	e8 8f fd ff ff       	call   1080 <puts@plt>
+    printf(" will be used to compute the reported bandwidth.\n");
+    12f1:	48 8d 3d e8 1e 00 00 	lea    rdi,[rip+0x1ee8]        # 31e0 <_IO_stdin_used+0x1e0>
+    12f8:	e8 83 fd ff ff       	call   1080 <puts@plt>
+    printf ("Number of Threads counted = %i\n",k);
+#endif
+
+    /* Get initial value for system clock. */
+#pragma omp parallel for
+    for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    12fd:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    1304:	00 00 00 00 
+    1308:	eb 6d                	jmp    1377 <main+0x1ce>
+	    a[j] = 1.0;
+    130a:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1311:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1318:	00 
+    1319:	48 8d 05 80 3d 00 00 	lea    rax,[rip+0x3d80]        # 50a0 <a>
+    1320:	f2 0f 10 05 38 23 00 	movsd  xmm0,QWORD PTR [rip+0x2338]        # 3660 <_IO_stdin_used+0x660>
+    1327:	00 
+    1328:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	    b[j] = 2.0;
+    132d:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1334:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    133b:	00 
+    133c:	48 8d 05 5d dd 25 26 	lea    rax,[rip+0x2625dd5d]        # 2625f0a0 <b>
+    1343:	f2 0f 10 05 1d 23 00 	movsd  xmm0,QWORD PTR [rip+0x231d]        # 3668 <_IO_stdin_used+0x668>
+    134a:	00 
+    134b:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	    c[j] = 0.0;
+    1350:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1357:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    135e:	00 
+    135f:	48 8d 05 3a 7d 4b 4c 	lea    rax,[rip+0x4c4b7d3a]        # 4c4b90a0 <c>
+    1366:	66 0f ef c0          	pxor   xmm0,xmm0
+    136a:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+    for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    136f:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    1376:	01 
+    1377:	48 81 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x4c4b3ff
+    137e:	ff b3 c4 04 
+    1382:	7e 86                	jle    130a <main+0x161>
+	}
+
+    printf(HLINE);
+    1384:	48 8d 3d b5 1c 00 00 	lea    rdi,[rip+0x1cb5]        # 3040 <_IO_stdin_used+0x40>
+    138b:	e8 f0 fc ff ff       	call   1080 <puts@plt>
+
+    if  ( (quantum = checktick()) >= 1) 
+    1390:	b8 00 00 00 00       	mov    eax,0x0
+    1395:	e8 40 08 00 00       	call   1bda <checktick>
+    139a:	89 85 4c fd ff ff    	mov    DWORD PTR [rbp-0x2b4],eax
+    13a0:	83 bd 4c fd ff ff 00 	cmp    DWORD PTR [rbp-0x2b4],0x0
+    13a7:	7e 1b                	jle    13c4 <main+0x21b>
+	printf("Your clock granularity/precision appears to be "
+    13a9:	8b 85 4c fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b4]
+    13af:	89 c6                	mov    esi,eax
+    13b1:	48 8d 3d 60 1e 00 00 	lea    rdi,[rip+0x1e60]        # 3218 <_IO_stdin_used+0x218>
+    13b8:	b8 00 00 00 00       	mov    eax,0x0
+    13bd:	e8 de fc ff ff       	call   10a0 <printf@plt>
+    13c2:	eb 16                	jmp    13da <main+0x231>
+	    "%d microseconds.\n", quantum);
+    else {
+	printf("Your clock granularity appears to be "
+    13c4:	48 8d 3d 95 1e 00 00 	lea    rdi,[rip+0x1e95]        # 3260 <_IO_stdin_used+0x260>
+    13cb:	e8 b0 fc ff ff       	call   1080 <puts@plt>
+	    "less than one microsecond.\n");
+	quantum = 1;
+    13d0:	c7 85 4c fd ff ff 01 	mov    DWORD PTR [rbp-0x2b4],0x1
+    13d7:	00 00 00 
+    }
+
+    t = mysecond();
+    13da:	b8 00 00 00 00       	mov    eax,0x0
+    13df:	e8 57 09 00 00       	call   1d3b <mysecond>
+    13e4:	66 48 0f 7e c0       	movq   rax,xmm0
+    13e9:	48 89 85 60 fd ff ff 	mov    QWORD PTR [rbp-0x2a0],rax
+#pragma omp parallel for
+    for (j = 0; j < STREAM_ARRAY_SIZE; j++)
+    13f0:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    13f7:	00 00 00 00 
+    13fb:	eb 42                	jmp    143f <main+0x296>
+		a[j] = 2.0E0 * a[j];
+    13fd:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1404:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    140b:	00 
+    140c:	48 8d 05 8d 3c 00 00 	lea    rax,[rip+0x3c8d]        # 50a0 <a>
+    1413:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1418:	f2 0f 58 c0          	addsd  xmm0,xmm0
+    141c:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1423:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    142a:	00 
+    142b:	48 8d 05 6e 3c 00 00 	lea    rax,[rip+0x3c6e]        # 50a0 <a>
+    1432:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+    for (j = 0; j < STREAM_ARRAY_SIZE; j++)
+    1437:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    143e:	01 
+    143f:	48 81 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x4c4b3ff
+    1446:	ff b3 c4 04 
+    144a:	7e b1                	jle    13fd <main+0x254>
+    t = 1.0E6 * (mysecond() - t);
+    144c:	b8 00 00 00 00       	mov    eax,0x0
+    1451:	e8 e5 08 00 00       	call   1d3b <mysecond>
+    1456:	66 0f 28 c8          	movapd xmm1,xmm0
+    145a:	f2 0f 5c 8d 60 fd ff 	subsd  xmm1,QWORD PTR [rbp-0x2a0]
+    1461:	ff 
+    1462:	f2 0f 10 05 06 22 00 	movsd  xmm0,QWORD PTR [rip+0x2206]        # 3670 <_IO_stdin_used+0x670>
+    1469:	00 
+    146a:	f2 0f 59 c1          	mulsd  xmm0,xmm1
+    146e:	f2 0f 11 85 60 fd ff 	movsd  QWORD PTR [rbp-0x2a0],xmm0
+    1475:	ff 
+
+    printf("Each test below will take on the order"
+    1476:	f2 0f 10 85 60 fd ff 	movsd  xmm0,QWORD PTR [rbp-0x2a0]
+    147d:	ff 
+    147e:	f2 0f 2c c0          	cvttsd2si eax,xmm0
+    1482:	89 c6                	mov    esi,eax
+    1484:	48 8d 3d 15 1e 00 00 	lea    rdi,[rip+0x1e15]        # 32a0 <_IO_stdin_used+0x2a0>
+    148b:	b8 00 00 00 00       	mov    eax,0x0
+    1490:	e8 0b fc ff ff       	call   10a0 <printf@plt>
+	" of %d microseconds.\n", (int) t  );
+    printf("   (= %d clock ticks)\n", (int) (t/quantum) );
+    1495:	f2 0f 2a 8d 4c fd ff 	cvtsi2sd xmm1,DWORD PTR [rbp-0x2b4]
+    149c:	ff 
+    149d:	f2 0f 10 85 60 fd ff 	movsd  xmm0,QWORD PTR [rbp-0x2a0]
+    14a4:	ff 
+    14a5:	f2 0f 5e c1          	divsd  xmm0,xmm1
+    14a9:	f2 0f 2c c0          	cvttsd2si eax,xmm0
+    14ad:	89 c6                	mov    esi,eax
+    14af:	48 8d 3d 26 1e 00 00 	lea    rdi,[rip+0x1e26]        # 32dc <_IO_stdin_used+0x2dc>
+    14b6:	b8 00 00 00 00       	mov    eax,0x0
+    14bb:	e8 e0 fb ff ff       	call   10a0 <printf@plt>
+    printf("Increase the size of the arrays if this shows that\n");
+    14c0:	48 8d 3d 31 1e 00 00 	lea    rdi,[rip+0x1e31]        # 32f8 <_IO_stdin_used+0x2f8>
+    14c7:	e8 b4 fb ff ff       	call   1080 <puts@plt>
+    printf("you are not getting at least 20 clock ticks per test.\n");
+    14cc:	48 8d 3d 5d 1e 00 00 	lea    rdi,[rip+0x1e5d]        # 3330 <_IO_stdin_used+0x330>
+    14d3:	e8 a8 fb ff ff       	call   1080 <puts@plt>
+
+    printf(HLINE);
+    14d8:	48 8d 3d 61 1b 00 00 	lea    rdi,[rip+0x1b61]        # 3040 <_IO_stdin_used+0x40>
+    14df:	e8 9c fb ff ff       	call   1080 <puts@plt>
+
+    printf("WARNING -- The above is only a rough guideline.\n");
+    14e4:	48 8d 3d 7d 1e 00 00 	lea    rdi,[rip+0x1e7d]        # 3368 <_IO_stdin_used+0x368>
+    14eb:	e8 90 fb ff ff       	call   1080 <puts@plt>
+    printf("For best results, please be sure you know the\n");
+    14f0:	48 8d 3d a1 1e 00 00 	lea    rdi,[rip+0x1ea1]        # 3398 <_IO_stdin_used+0x398>
+    14f7:	e8 84 fb ff ff       	call   1080 <puts@plt>
+    printf("precision of your system timer.\n");
+    14fc:	48 8d 3d c5 1e 00 00 	lea    rdi,[rip+0x1ec5]        # 33c8 <_IO_stdin_used+0x3c8>
+    1503:	e8 78 fb ff ff       	call   1080 <puts@plt>
+    printf(HLINE);
+    1508:	48 8d 3d 31 1b 00 00 	lea    rdi,[rip+0x1b31]        # 3040 <_IO_stdin_used+0x40>
+    150f:	e8 6c fb ff ff       	call   1080 <puts@plt>
+    
+    /*	--- MAIN LOOP --- repeat test cases NTIMES times --- */
+
+    scalar = 3.0;
+    1514:	f2 0f 10 05 3c 21 00 	movsd  xmm0,QWORD PTR [rip+0x213c]        # 3658 <_IO_stdin_used+0x658>
+    151b:	00 
+    151c:	f2 0f 11 85 68 fd ff 	movsd  QWORD PTR [rbp-0x298],xmm0
+    1523:	ff 
+    for (k=0; k<NTIMES; k++)
+    1524:	c7 85 50 fd ff ff 00 	mov    DWORD PTR [rbp-0x2b0],0x0
+    152b:	00 00 00 
+    152e:	e9 19 03 00 00       	jmp    184c <main+0x6a3>
+	{
+	times[0][k] = mysecond();
+    1533:	b8 00 00 00 00       	mov    eax,0x0
+    1538:	e8 fe 07 00 00       	call   1d3b <mysecond>
+    153d:	66 48 0f 7e c0       	movq   rax,xmm0
+    1542:	8b 95 50 fd ff ff    	mov    edx,DWORD PTR [rbp-0x2b0]
+    1548:	48 63 d2             	movsxd rdx,edx
+    154b:	48 89 84 d5 70 fd ff 	mov    QWORD PTR [rbp+rdx*8-0x290],rax
+    1552:	ff 
+#ifdef TUNED
+        tuned_STREAM_Copy();
+#else
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    1553:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    155a:	00 00 00 00 
+    155e:	eb 3e                	jmp    159e <main+0x3f5>
+	    c[j] = a[j];
+    1560:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1567:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    156e:	00 
+    156f:	48 8d 05 2a 3b 00 00 	lea    rax,[rip+0x3b2a]        # 50a0 <a>
+    1576:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    157b:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1582:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1589:	00 
+    158a:	48 8d 05 0f 7b 4b 4c 	lea    rax,[rip+0x4c4b7b0f]        # 4c4b90a0 <c>
+    1591:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    1596:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    159d:	01 
+    159e:	48 81 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x4c4b3ff
+    15a5:	ff b3 c4 04 
+    15a9:	7e b5                	jle    1560 <main+0x3b7>
+#endif
+	times[0][k] = mysecond() - times[0][k];
+    15ab:	b8 00 00 00 00       	mov    eax,0x0
+    15b0:	e8 86 07 00 00       	call   1d3b <mysecond>
+    15b5:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    15bb:	48 98                	cdqe   
+    15bd:	f2 0f 10 8c c5 70 fd 	movsd  xmm1,QWORD PTR [rbp+rax*8-0x290]
+    15c4:	ff ff 
+    15c6:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    15ca:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    15d0:	48 98                	cdqe   
+    15d2:	f2 0f 11 84 c5 70 fd 	movsd  QWORD PTR [rbp+rax*8-0x290],xmm0
+    15d9:	ff ff 
+	
+	times[1][k] = mysecond();
+    15db:	b8 00 00 00 00       	mov    eax,0x0
+    15e0:	e8 56 07 00 00       	call   1d3b <mysecond>
+    15e5:	66 48 0f 7e c0       	movq   rax,xmm0
+    15ea:	8b 95 50 fd ff ff    	mov    edx,DWORD PTR [rbp-0x2b0]
+    15f0:	48 63 d2             	movsxd rdx,edx
+    15f3:	48 83 c2 14          	add    rdx,0x14
+    15f7:	48 89 84 d5 70 fd ff 	mov    QWORD PTR [rbp+rdx*8-0x290],rax
+    15fe:	ff 
+#ifdef TUNED
+        tuned_STREAM_Scale(scalar);
+#else
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    15ff:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    1606:	00 00 00 00 
+    160a:	eb 46                	jmp    1652 <main+0x4a9>
+	    b[j] = scalar*c[j];
+    160c:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1613:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    161a:	00 
+    161b:	48 8d 05 7e 7a 4b 4c 	lea    rax,[rip+0x4c4b7a7e]        # 4c4b90a0 <c>
+    1622:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1627:	f2 0f 59 85 68 fd ff 	mulsd  xmm0,QWORD PTR [rbp-0x298]
+    162e:	ff 
+    162f:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1636:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    163d:	00 
+    163e:	48 8d 05 5b da 25 26 	lea    rax,[rip+0x2625da5b]        # 2625f0a0 <b>
+    1645:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    164a:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    1651:	01 
+    1652:	48 81 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x4c4b3ff
+    1659:	ff b3 c4 04 
+    165d:	7e ad                	jle    160c <main+0x463>
+#endif
+	times[1][k] = mysecond() - times[1][k];
+    165f:	b8 00 00 00 00       	mov    eax,0x0
+    1664:	e8 d2 06 00 00       	call   1d3b <mysecond>
+    1669:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    166f:	48 98                	cdqe   
+    1671:	48 83 c0 14          	add    rax,0x14
+    1675:	f2 0f 10 8c c5 70 fd 	movsd  xmm1,QWORD PTR [rbp+rax*8-0x290]
+    167c:	ff ff 
+    167e:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    1682:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    1688:	48 98                	cdqe   
+    168a:	48 83 c0 14          	add    rax,0x14
+    168e:	f2 0f 11 84 c5 70 fd 	movsd  QWORD PTR [rbp+rax*8-0x290],xmm0
+    1695:	ff ff 
+	
+	times[2][k] = mysecond();
+    1697:	b8 00 00 00 00       	mov    eax,0x0
+    169c:	e8 9a 06 00 00       	call   1d3b <mysecond>
+    16a1:	66 48 0f 7e c0       	movq   rax,xmm0
+    16a6:	8b 95 50 fd ff ff    	mov    edx,DWORD PTR [rbp-0x2b0]
+    16ac:	48 63 d2             	movsxd rdx,edx
+    16af:	48 83 c2 28          	add    rdx,0x28
+    16b3:	48 89 84 d5 70 fd ff 	mov    QWORD PTR [rbp+rdx*8-0x290],rax
+    16ba:	ff 
+#ifdef TUNED
+        tuned_STREAM_Add();
+#else
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    16bb:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    16c2:	00 00 00 00 
+    16c6:	eb 5d                	jmp    1725 <main+0x57c>
+	    c[j] = a[j]+b[j];
+    16c8:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    16cf:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    16d6:	00 
+    16d7:	48 8d 05 c2 39 00 00 	lea    rax,[rip+0x39c2]        # 50a0 <a>
+    16de:	f2 0f 10 0c 02       	movsd  xmm1,QWORD PTR [rdx+rax*1]
+    16e3:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    16ea:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    16f1:	00 
+    16f2:	48 8d 05 a7 d9 25 26 	lea    rax,[rip+0x2625d9a7]        # 2625f0a0 <b>
+    16f9:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    16fe:	f2 0f 58 c1          	addsd  xmm0,xmm1
+    1702:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1709:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1710:	00 
+    1711:	48 8d 05 88 79 4b 4c 	lea    rax,[rip+0x4c4b7988]        # 4c4b90a0 <c>
+    1718:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    171d:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    1724:	01 
+    1725:	48 81 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x4c4b3ff
+    172c:	ff b3 c4 04 
+    1730:	7e 96                	jle    16c8 <main+0x51f>
+#endif
+	times[2][k] = mysecond() - times[2][k];
+    1732:	b8 00 00 00 00       	mov    eax,0x0
+    1737:	e8 ff 05 00 00       	call   1d3b <mysecond>
+    173c:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    1742:	48 98                	cdqe   
+    1744:	48 83 c0 28          	add    rax,0x28
+    1748:	f2 0f 10 8c c5 70 fd 	movsd  xmm1,QWORD PTR [rbp+rax*8-0x290]
+    174f:	ff ff 
+    1751:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    1755:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    175b:	48 98                	cdqe   
+    175d:	48 83 c0 28          	add    rax,0x28
+    1761:	f2 0f 11 84 c5 70 fd 	movsd  QWORD PTR [rbp+rax*8-0x290],xmm0
+    1768:	ff ff 
+	
+	times[3][k] = mysecond();
+    176a:	b8 00 00 00 00       	mov    eax,0x0
+    176f:	e8 c7 05 00 00       	call   1d3b <mysecond>
+    1774:	66 48 0f 7e c0       	movq   rax,xmm0
+    1779:	8b 95 50 fd ff ff    	mov    edx,DWORD PTR [rbp-0x2b0]
+    177f:	48 63 d2             	movsxd rdx,edx
+    1782:	48 83 c2 3c          	add    rdx,0x3c
+    1786:	48 89 84 d5 70 fd ff 	mov    QWORD PTR [rbp+rdx*8-0x290],rax
+    178d:	ff 
+#ifdef TUNED
+        tuned_STREAM_Triad(scalar);
+#else
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    178e:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    1795:	00 00 00 00 
+    1799:	eb 65                	jmp    1800 <main+0x657>
+	    a[j] = b[j]+scalar*c[j];
+    179b:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    17a2:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    17a9:	00 
+    17aa:	48 8d 05 ef d8 25 26 	lea    rax,[rip+0x2625d8ef]        # 2625f0a0 <b>
+    17b1:	f2 0f 10 0c 02       	movsd  xmm1,QWORD PTR [rdx+rax*1]
+    17b6:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    17bd:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    17c4:	00 
+    17c5:	48 8d 05 d4 78 4b 4c 	lea    rax,[rip+0x4c4b78d4]        # 4c4b90a0 <c>
+    17cc:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    17d1:	f2 0f 59 85 68 fd ff 	mulsd  xmm0,QWORD PTR [rbp-0x298]
+    17d8:	ff 
+    17d9:	f2 0f 58 c1          	addsd  xmm0,xmm1
+    17dd:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    17e4:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    17eb:	00 
+    17ec:	48 8d 05 ad 38 00 00 	lea    rax,[rip+0x38ad]        # 50a0 <a>
+    17f3:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+    17f8:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    17ff:	01 
+    1800:	48 81 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x4c4b3ff
+    1807:	ff b3 c4 04 
+    180b:	7e 8e                	jle    179b <main+0x5f2>
+#endif
+	times[3][k] = mysecond() - times[3][k];
+    180d:	b8 00 00 00 00       	mov    eax,0x0
+    1812:	e8 24 05 00 00       	call   1d3b <mysecond>
+    1817:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    181d:	48 98                	cdqe   
+    181f:	48 83 c0 3c          	add    rax,0x3c
+    1823:	f2 0f 10 8c c5 70 fd 	movsd  xmm1,QWORD PTR [rbp+rax*8-0x290]
+    182a:	ff ff 
+    182c:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    1830:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    1836:	48 98                	cdqe   
+    1838:	48 83 c0 3c          	add    rax,0x3c
+    183c:	f2 0f 11 84 c5 70 fd 	movsd  QWORD PTR [rbp+rax*8-0x290],xmm0
+    1843:	ff ff 
+    for (k=0; k<NTIMES; k++)
+    1845:	83 85 50 fd ff ff 01 	add    DWORD PTR [rbp-0x2b0],0x1
+    184c:	83 bd 50 fd ff ff 13 	cmp    DWORD PTR [rbp-0x2b0],0x13
+    1853:	0f 8e da fc ff ff    	jle    1533 <main+0x38a>
+	}
+
+    /*	--- SUMMARY --- */
+
+    for (k=1; k<NTIMES; k++) /* note -- skip first iteration */
+    1859:	c7 85 50 fd ff ff 01 	mov    DWORD PTR [rbp-0x2b0],0x1
+    1860:	00 00 00 
+    1863:	e9 eb 01 00 00       	jmp    1a53 <main+0x8aa>
+	{
+	for (j=0; j<4; j++)
+    1868:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    186f:	00 00 00 00 
+    1873:	e9 c6 01 00 00       	jmp    1a3e <main+0x895>
+	    {
+	    avgtime[j] = avgtime[j] + times[j][k];
+    1878:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    187f:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1886:	00 
+    1887:	48 8d 05 12 18 71 72 	lea    rax,[rip+0x72711812]        # 727130a0 <avgtime>
+    188e:	f2 0f 10 0c 02       	movsd  xmm1,QWORD PTR [rdx+rax*1]
+    1893:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    1899:	48 63 c8             	movsxd rcx,eax
+    189c:	48 8b 95 58 fd ff ff 	mov    rdx,QWORD PTR [rbp-0x2a8]
+    18a3:	48 89 d0             	mov    rax,rdx
+    18a6:	48 c1 e0 02          	shl    rax,0x2
+    18aa:	48 01 d0             	add    rax,rdx
+    18ad:	48 c1 e0 02          	shl    rax,0x2
+    18b1:	48 01 c8             	add    rax,rcx
+    18b4:	f2 0f 10 84 c5 70 fd 	movsd  xmm0,QWORD PTR [rbp+rax*8-0x290]
+    18bb:	ff ff 
+    18bd:	f2 0f 58 c1          	addsd  xmm0,xmm1
+    18c1:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    18c8:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    18cf:	00 
+    18d0:	48 8d 05 c9 17 71 72 	lea    rax,[rip+0x727117c9]        # 727130a0 <avgtime>
+    18d7:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	    mintime[j] = MIN(mintime[j], times[j][k]);
+    18dc:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    18e3:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    18ea:	00 
+    18eb:	48 8d 05 2e 37 00 00 	lea    rax,[rip+0x372e]        # 5020 <mintime>
+    18f2:	f2 0f 10 0c 02       	movsd  xmm1,QWORD PTR [rdx+rax*1]
+    18f7:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    18fd:	48 63 c8             	movsxd rcx,eax
+    1900:	48 8b 95 58 fd ff ff 	mov    rdx,QWORD PTR [rbp-0x2a8]
+    1907:	48 89 d0             	mov    rax,rdx
+    190a:	48 c1 e0 02          	shl    rax,0x2
+    190e:	48 01 d0             	add    rax,rdx
+    1911:	48 c1 e0 02          	shl    rax,0x2
+    1915:	48 01 c8             	add    rax,rcx
+    1918:	f2 0f 10 84 c5 70 fd 	movsd  xmm0,QWORD PTR [rbp+rax*8-0x290]
+    191f:	ff ff 
+    1921:	66 0f 2f c1          	comisd xmm0,xmm1
+    1925:	76 1d                	jbe    1944 <main+0x79b>
+    1927:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    192e:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1935:	00 
+    1936:	48 8d 05 e3 36 00 00 	lea    rax,[rip+0x36e3]        # 5020 <mintime>
+    193d:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1942:	eb 2a                	jmp    196e <main+0x7c5>
+    1944:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    194a:	48 63 c8             	movsxd rcx,eax
+    194d:	48 8b 95 58 fd ff ff 	mov    rdx,QWORD PTR [rbp-0x2a8]
+    1954:	48 89 d0             	mov    rax,rdx
+    1957:	48 c1 e0 02          	shl    rax,0x2
+    195b:	48 01 d0             	add    rax,rdx
+    195e:	48 c1 e0 02          	shl    rax,0x2
+    1962:	48 01 c8             	add    rax,rcx
+    1965:	f2 0f 10 84 c5 70 fd 	movsd  xmm0,QWORD PTR [rbp+rax*8-0x290]
+    196c:	ff ff 
+    196e:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1975:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    197c:	00 
+    197d:	48 8d 05 9c 36 00 00 	lea    rax,[rip+0x369c]        # 5020 <mintime>
+    1984:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	    maxtime[j] = MAX(maxtime[j], times[j][k]);
+    1989:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1990:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1997:	00 
+    1998:	48 8d 05 21 17 71 72 	lea    rax,[rip+0x72711721]        # 727130c0 <maxtime>
+    199f:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    19a4:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    19aa:	48 63 c8             	movsxd rcx,eax
+    19ad:	48 8b 95 58 fd ff ff 	mov    rdx,QWORD PTR [rbp-0x2a8]
+    19b4:	48 89 d0             	mov    rax,rdx
+    19b7:	48 c1 e0 02          	shl    rax,0x2
+    19bb:	48 01 d0             	add    rax,rdx
+    19be:	48 c1 e0 02          	shl    rax,0x2
+    19c2:	48 01 c8             	add    rax,rcx
+    19c5:	f2 0f 10 8c c5 70 fd 	movsd  xmm1,QWORD PTR [rbp+rax*8-0x290]
+    19cc:	ff ff 
+    19ce:	66 0f 2f c1          	comisd xmm0,xmm1
+    19d2:	76 1d                	jbe    19f1 <main+0x848>
+    19d4:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    19db:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    19e2:	00 
+    19e3:	48 8d 05 d6 16 71 72 	lea    rax,[rip+0x727116d6]        # 727130c0 <maxtime>
+    19ea:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    19ef:	eb 2a                	jmp    1a1b <main+0x872>
+    19f1:	8b 85 50 fd ff ff    	mov    eax,DWORD PTR [rbp-0x2b0]
+    19f7:	48 63 c8             	movsxd rcx,eax
+    19fa:	48 8b 95 58 fd ff ff 	mov    rdx,QWORD PTR [rbp-0x2a8]
+    1a01:	48 89 d0             	mov    rax,rdx
+    1a04:	48 c1 e0 02          	shl    rax,0x2
+    1a08:	48 01 d0             	add    rax,rdx
+    1a0b:	48 c1 e0 02          	shl    rax,0x2
+    1a0f:	48 01 c8             	add    rax,rcx
+    1a12:	f2 0f 10 84 c5 70 fd 	movsd  xmm0,QWORD PTR [rbp+rax*8-0x290]
+    1a19:	ff ff 
+    1a1b:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1a22:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1a29:	00 
+    1a2a:	48 8d 05 8f 16 71 72 	lea    rax,[rip+0x7271168f]        # 727130c0 <maxtime>
+    1a31:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+	for (j=0; j<4; j++)
+    1a36:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    1a3d:	01 
+    1a3e:	48 83 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x3
+    1a45:	03 
+    1a46:	0f 8e 2c fe ff ff    	jle    1878 <main+0x6cf>
+    for (k=1; k<NTIMES; k++) /* note -- skip first iteration */
+    1a4c:	83 85 50 fd ff ff 01 	add    DWORD PTR [rbp-0x2b0],0x1
+    1a53:	83 bd 50 fd ff ff 13 	cmp    DWORD PTR [rbp-0x2b0],0x13
+    1a5a:	0f 8e 08 fe ff ff    	jle    1868 <main+0x6bf>
+	    }
+	}
+    
+    printf("Function    Best Rate MB/s  Avg time     Min time     Max time\n");
+    1a60:	48 8d 3d 81 19 00 00 	lea    rdi,[rip+0x1981]        # 33e8 <_IO_stdin_used+0x3e8>
+    1a67:	e8 14 f6 ff ff       	call   1080 <puts@plt>
+    for (j=0; j<4; j++) {
+    1a6c:	48 c7 85 58 fd ff ff 	mov    QWORD PTR [rbp-0x2a8],0x0
+    1a73:	00 00 00 00 
+    1a77:	e9 13 01 00 00       	jmp    1b8f <main+0x9e6>
+		avgtime[j] = avgtime[j]/(double)(NTIMES-1);
+    1a7c:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1a83:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1a8a:	00 
+    1a8b:	48 8d 05 0e 16 71 72 	lea    rax,[rip+0x7271160e]        # 727130a0 <avgtime>
+    1a92:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1a97:	f2 0f 10 0d d9 1b 00 	movsd  xmm1,QWORD PTR [rip+0x1bd9]        # 3678 <_IO_stdin_used+0x678>
+    1a9e:	00 
+    1a9f:	f2 0f 5e c1          	divsd  xmm0,xmm1
+    1aa3:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1aaa:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1ab1:	00 
+    1ab2:	48 8d 05 e7 15 71 72 	lea    rax,[rip+0x727115e7]        # 727130a0 <avgtime>
+    1ab9:	f2 0f 11 04 02       	movsd  QWORD PTR [rdx+rax*1],xmm0
+
+		printf("%s%12.1f  %11.6f  %11.6f  %11.6f\n", label[j],
+    1abe:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1ac5:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1acc:	00 
+    1acd:	48 8d 05 ec 15 71 72 	lea    rax,[rip+0x727115ec]        # 727130c0 <maxtime>
+    1ad4:	f2 0f 10 1c 02       	movsd  xmm3,QWORD PTR [rdx+rax*1]
+    1ad9:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1ae0:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1ae7:	00 
+    1ae8:	48 8d 05 31 35 00 00 	lea    rax,[rip+0x3531]        # 5020 <mintime>
+    1aef:	f2 0f 10 14 02       	movsd  xmm2,QWORD PTR [rdx+rax*1]
+    1af4:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1afb:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1b02:	00 
+    1b03:	48 8d 05 96 15 71 72 	lea    rax,[rip+0x72711596]        # 727130a0 <avgtime>
+    1b0a:	f2 0f 10 24 02       	movsd  xmm4,QWORD PTR [rdx+rax*1]
+	       1.0E-06 * bytes[j]/mintime[j],
+    1b0f:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1b16:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1b1d:	00 
+    1b1e:	48 8d 05 1b 35 00 00 	lea    rax,[rip+0x351b]        # 5040 <bytes>
+    1b25:	f2 0f 10 0c 02       	movsd  xmm1,QWORD PTR [rdx+rax*1]
+    1b2a:	f2 0f 10 05 4e 1b 00 	movsd  xmm0,QWORD PTR [rip+0x1b4e]        # 3680 <_IO_stdin_used+0x680>
+    1b31:	00 
+    1b32:	f2 0f 59 c1          	mulsd  xmm0,xmm1
+    1b36:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1b3d:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1b44:	00 
+    1b45:	48 8d 05 d4 34 00 00 	lea    rax,[rip+0x34d4]        # 5020 <mintime>
+    1b4c:	f2 0f 10 0c 02       	movsd  xmm1,QWORD PTR [rdx+rax*1]
+		printf("%s%12.1f  %11.6f  %11.6f  %11.6f\n", label[j],
+    1b51:	f2 0f 5e c1          	divsd  xmm0,xmm1
+    1b55:	48 8b 85 58 fd ff ff 	mov    rax,QWORD PTR [rbp-0x2a8]
+    1b5c:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1b63:	00 
+    1b64:	48 8d 05 f5 34 00 00 	lea    rax,[rip+0x34f5]        # 5060 <label>
+    1b6b:	48 8b 04 02          	mov    rax,QWORD PTR [rdx+rax*1]
+    1b6f:	66 0f 28 cc          	movapd xmm1,xmm4
+    1b73:	48 89 c6             	mov    rsi,rax
+    1b76:	48 8d 3d ab 18 00 00 	lea    rdi,[rip+0x18ab]        # 3428 <_IO_stdin_used+0x428>
+    1b7d:	b8 04 00 00 00       	mov    eax,0x4
+    1b82:	e8 19 f5 ff ff       	call   10a0 <printf@plt>
+    for (j=0; j<4; j++) {
+    1b87:	48 83 85 58 fd ff ff 	add    QWORD PTR [rbp-0x2a8],0x1
+    1b8e:	01 
+    1b8f:	48 83 bd 58 fd ff ff 	cmp    QWORD PTR [rbp-0x2a8],0x3
+    1b96:	03 
+    1b97:	0f 8e df fe ff ff    	jle    1a7c <main+0x8d3>
+	       avgtime[j],
+	       mintime[j],
+	       maxtime[j]);
+    }
+    printf(HLINE);
+    1b9d:	48 8d 3d 9c 14 00 00 	lea    rdi,[rip+0x149c]        # 3040 <_IO_stdin_used+0x40>
+    1ba4:	e8 d7 f4 ff ff       	call   1080 <puts@plt>
+
+    /* --- Check Results --- */
+    checkSTREAMresults();
+    1ba9:	b8 00 00 00 00       	mov    eax,0x0
+    1bae:	e8 f1 01 00 00       	call   1da4 <checkSTREAMresults>
+    printf(HLINE);
+    1bb3:	48 8d 3d 86 14 00 00 	lea    rdi,[rip+0x1486]        # 3040 <_IO_stdin_used+0x40>
+    1bba:	e8 c1 f4 ff ff       	call   1080 <puts@plt>
+
+    return 0;
+    1bbf:	b8 00 00 00 00       	mov    eax,0x0
+}
+    1bc4:	48 8b 75 f8          	mov    rsi,QWORD PTR [rbp-0x8]
+    1bc8:	64 48 33 34 25 28 00 	xor    rsi,QWORD PTR fs:0x28
+    1bcf:	00 00 
+    1bd1:	74 05                	je     1bd8 <main+0xa2f>
+    1bd3:	e8 b8 f4 ff ff       	call   1090 <__stack_chk_fail@plt>
+    1bd8:	c9                   	leave  
+    1bd9:	c3                   	ret    
+
+0000000000001bda <checktick>:
+
+# define	M	20
+
+int
+checktick()
+    {
+    1bda:	f3 0f 1e fa          	endbr64 
+    1bde:	55                   	push   rbp
+    1bdf:	48 89 e5             	mov    rbp,rsp
+    1be2:	48 81 ec d0 00 00 00 	sub    rsp,0xd0
+    1be9:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+    1bf0:	00 00 
+    1bf2:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+    1bf6:	31 c0                	xor    eax,eax
+    int		i, minDelta, Delta;
+    double	t1, t2, timesfound[M];
+
+/*  Collect a sequence of M unique time values from the system. */
+
+    for (i = 0; i < M; i++) {
+    1bf8:	c7 85 34 ff ff ff 00 	mov    DWORD PTR [rbp-0xcc],0x0
+    1bff:	00 00 00 
+    1c02:	eb 7f                	jmp    1c83 <checktick+0xa9>
+	t1 = mysecond();
+    1c04:	b8 00 00 00 00       	mov    eax,0x0
+    1c09:	e8 2d 01 00 00       	call   1d3b <mysecond>
+    1c0e:	66 48 0f 7e c0       	movq   rax,xmm0
+    1c13:	48 89 85 40 ff ff ff 	mov    QWORD PTR [rbp-0xc0],rax
+	while( ((t2=mysecond()) - t1) < 1.0E-6 )
+    1c1a:	90                   	nop
+    1c1b:	b8 00 00 00 00       	mov    eax,0x0
+    1c20:	e8 16 01 00 00       	call   1d3b <mysecond>
+    1c25:	66 48 0f 7e c0       	movq   rax,xmm0
+    1c2a:	48 89 85 48 ff ff ff 	mov    QWORD PTR [rbp-0xb8],rax
+    1c31:	f2 0f 10 85 48 ff ff 	movsd  xmm0,QWORD PTR [rbp-0xb8]
+    1c38:	ff 
+    1c39:	66 0f 28 c8          	movapd xmm1,xmm0
+    1c3d:	f2 0f 5c 8d 40 ff ff 	subsd  xmm1,QWORD PTR [rbp-0xc0]
+    1c44:	ff 
+    1c45:	f2 0f 10 05 33 1a 00 	movsd  xmm0,QWORD PTR [rip+0x1a33]        # 3680 <_IO_stdin_used+0x680>
+    1c4c:	00 
+    1c4d:	66 0f 2f c1          	comisd xmm0,xmm1
+    1c51:	77 c8                	ja     1c1b <checktick+0x41>
+	    ;
+	timesfound[i] = t1 = t2;
+    1c53:	f2 0f 10 85 48 ff ff 	movsd  xmm0,QWORD PTR [rbp-0xb8]
+    1c5a:	ff 
+    1c5b:	f2 0f 11 85 40 ff ff 	movsd  QWORD PTR [rbp-0xc0],xmm0
+    1c62:	ff 
+    1c63:	8b 85 34 ff ff ff    	mov    eax,DWORD PTR [rbp-0xcc]
+    1c69:	48 98                	cdqe   
+    1c6b:	f2 0f 10 85 40 ff ff 	movsd  xmm0,QWORD PTR [rbp-0xc0]
+    1c72:	ff 
+    1c73:	f2 0f 11 84 c5 50 ff 	movsd  QWORD PTR [rbp+rax*8-0xb0],xmm0
+    1c7a:	ff ff 
+    for (i = 0; i < M; i++) {
+    1c7c:	83 85 34 ff ff ff 01 	add    DWORD PTR [rbp-0xcc],0x1
+    1c83:	83 bd 34 ff ff ff 13 	cmp    DWORD PTR [rbp-0xcc],0x13
+    1c8a:	0f 8e 74 ff ff ff    	jle    1c04 <checktick+0x2a>
+ * Determine the minimum difference between these M values.
+ * This result will be our estimate (in microseconds) for the
+ * clock granularity.
+ */
+
+    minDelta = 1000000;
+    1c90:	c7 85 38 ff ff ff 40 	mov    DWORD PTR [rbp-0xc8],0xf4240
+    1c97:	42 0f 00 
+    for (i = 1; i < M; i++) {
+    1c9a:	c7 85 34 ff ff ff 01 	mov    DWORD PTR [rbp-0xcc],0x1
+    1ca1:	00 00 00 
+    1ca4:	eb 70                	jmp    1d16 <checktick+0x13c>
+	Delta = (int)( 1.0E6 * (timesfound[i]-timesfound[i-1]));
+    1ca6:	8b 85 34 ff ff ff    	mov    eax,DWORD PTR [rbp-0xcc]
+    1cac:	48 98                	cdqe   
+    1cae:	f2 0f 10 84 c5 50 ff 	movsd  xmm0,QWORD PTR [rbp+rax*8-0xb0]
+    1cb5:	ff ff 
+    1cb7:	8b 85 34 ff ff ff    	mov    eax,DWORD PTR [rbp-0xcc]
+    1cbd:	83 e8 01             	sub    eax,0x1
+    1cc0:	48 98                	cdqe   
+    1cc2:	f2 0f 10 8c c5 50 ff 	movsd  xmm1,QWORD PTR [rbp+rax*8-0xb0]
+    1cc9:	ff ff 
+    1ccb:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    1ccf:	66 0f 28 c8          	movapd xmm1,xmm0
+    1cd3:	f2 0f 10 05 95 19 00 	movsd  xmm0,QWORD PTR [rip+0x1995]        # 3670 <_IO_stdin_used+0x670>
+    1cda:	00 
+    1cdb:	f2 0f 59 c1          	mulsd  xmm0,xmm1
+    1cdf:	f2 0f 2c c0          	cvttsd2si eax,xmm0
+    1ce3:	89 85 3c ff ff ff    	mov    DWORD PTR [rbp-0xc4],eax
+	minDelta = MIN(minDelta, MAX(Delta,0));
+    1ce9:	b8 00 00 00 00       	mov    eax,0x0
+    1cee:	83 bd 3c ff ff ff 00 	cmp    DWORD PTR [rbp-0xc4],0x0
+    1cf5:	0f 49 85 3c ff ff ff 	cmovns eax,DWORD PTR [rbp-0xc4]
+    1cfc:	39 85 38 ff ff ff    	cmp    DWORD PTR [rbp-0xc8],eax
+    1d02:	0f 4e 85 38 ff ff ff 	cmovle eax,DWORD PTR [rbp-0xc8]
+    1d09:	89 85 38 ff ff ff    	mov    DWORD PTR [rbp-0xc8],eax
+    for (i = 1; i < M; i++) {
+    1d0f:	83 85 34 ff ff ff 01 	add    DWORD PTR [rbp-0xcc],0x1
+    1d16:	83 bd 34 ff ff ff 13 	cmp    DWORD PTR [rbp-0xcc],0x13
+    1d1d:	7e 87                	jle    1ca6 <checktick+0xcc>
+	}
+
+   return(minDelta);
+    1d1f:	8b 85 38 ff ff ff    	mov    eax,DWORD PTR [rbp-0xc8]
+    }
+    1d25:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
+    1d29:	64 48 33 14 25 28 00 	xor    rdx,QWORD PTR fs:0x28
+    1d30:	00 00 
+    1d32:	74 05                	je     1d39 <checktick+0x15f>
+    1d34:	e8 57 f3 ff ff       	call   1090 <__stack_chk_fail@plt>
+    1d39:	c9                   	leave  
+    1d3a:	c3                   	ret    
+
+0000000000001d3b <mysecond>:
+   clock timer on most UNIX-like systems.  */
+
+#include <sys/time.h>
+
+double mysecond()
+{
+    1d3b:	f3 0f 1e fa          	endbr64 
+    1d3f:	55                   	push   rbp
+    1d40:	48 89 e5             	mov    rbp,rsp
+    1d43:	48 83 ec 30          	sub    rsp,0x30
+    1d47:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+    1d4e:	00 00 
+    1d50:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+    1d54:	31 c0                	xor    eax,eax
+        struct timeval tp;
+        struct timezone tzp;
+        int i;
+
+        i = gettimeofday(&tp,&tzp);
+    1d56:	48 8d 55 d8          	lea    rdx,[rbp-0x28]
+    1d5a:	48 8d 45 e0          	lea    rax,[rbp-0x20]
+    1d5e:	48 89 d6             	mov    rsi,rdx
+    1d61:	48 89 c7             	mov    rdi,rax
+    1d64:	e8 47 f3 ff ff       	call   10b0 <gettimeofday@plt>
+    1d69:	89 45 d4             	mov    DWORD PTR [rbp-0x2c],eax
+        return ( (double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
+    1d6c:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+    1d70:	f2 48 0f 2a c8       	cvtsi2sd xmm1,rax
+    1d75:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+    1d79:	f2 48 0f 2a d0       	cvtsi2sd xmm2,rax
+    1d7e:	f2 0f 10 05 fa 18 00 	movsd  xmm0,QWORD PTR [rip+0x18fa]        # 3680 <_IO_stdin_used+0x680>
+    1d85:	00 
+    1d86:	f2 0f 59 c2          	mulsd  xmm0,xmm2
+    1d8a:	f2 0f 58 c1          	addsd  xmm0,xmm1
+}
+    1d8e:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+    1d92:	64 48 33 04 25 28 00 	xor    rax,QWORD PTR fs:0x28
+    1d99:	00 00 
+    1d9b:	74 05                	je     1da2 <mysecond+0x67>
+    1d9d:	e8 ee f2 ff ff       	call   1090 <__stack_chk_fail@plt>
+    1da2:	c9                   	leave  
+    1da3:	c3                   	ret    
+
+0000000000001da4 <checkSTREAMresults>:
+
+#ifndef abs
+#define abs(a) ((a) >= 0 ? (a) : -(a))
+#endif
+void checkSTREAMresults ()
+{
+    1da4:	f3 0f 1e fa          	endbr64 
+    1da8:	55                   	push   rbp
+    1da9:	48 89 e5             	mov    rbp,rsp
+    1dac:	48 83 ec 70          	sub    rsp,0x70
+	double epsilon;
+	ssize_t	j;
+	int	k,ierr,err;
+
+    /* reproduce initialization */
+	aj = 1.0;
+    1db0:	f2 0f 10 05 a8 18 00 	movsd  xmm0,QWORD PTR [rip+0x18a8]        # 3660 <_IO_stdin_used+0x660>
+    1db7:	00 
+    1db8:	f2 0f 11 45 a0       	movsd  QWORD PTR [rbp-0x60],xmm0
+	bj = 2.0;
+    1dbd:	f2 0f 10 05 a3 18 00 	movsd  xmm0,QWORD PTR [rip+0x18a3]        # 3668 <_IO_stdin_used+0x668>
+    1dc4:	00 
+    1dc5:	f2 0f 11 45 a8       	movsd  QWORD PTR [rbp-0x58],xmm0
+	cj = 0.0;
+    1dca:	66 0f ef c0          	pxor   xmm0,xmm0
+    1dce:	f2 0f 11 45 b0       	movsd  QWORD PTR [rbp-0x50],xmm0
+    /* a[] is modified during timing check */
+	aj = 2.0E0 * aj;
+    1dd3:	f2 0f 10 45 a0       	movsd  xmm0,QWORD PTR [rbp-0x60]
+    1dd8:	f2 0f 58 c0          	addsd  xmm0,xmm0
+    1ddc:	f2 0f 11 45 a0       	movsd  QWORD PTR [rbp-0x60],xmm0
+    /* now execute timing loop */
+	scalar = 3.0;
+    1de1:	f2 0f 10 05 6f 18 00 	movsd  xmm0,QWORD PTR [rip+0x186f]        # 3658 <_IO_stdin_used+0x658>
+    1de8:	00 
+    1de9:	f2 0f 11 45 d8       	movsd  QWORD PTR [rbp-0x28],xmm0
+	for (k=0; k<NTIMES; k++)
+    1dee:	c7 45 94 00 00 00 00 	mov    DWORD PTR [rbp-0x6c],0x0
+    1df5:	eb 44                	jmp    1e3b <checkSTREAMresults+0x97>
+        {
+            cj = aj;
+    1df7:	f2 0f 10 45 a0       	movsd  xmm0,QWORD PTR [rbp-0x60]
+    1dfc:	f2 0f 11 45 b0       	movsd  QWORD PTR [rbp-0x50],xmm0
+            bj = scalar*cj;
+    1e01:	f2 0f 10 45 d8       	movsd  xmm0,QWORD PTR [rbp-0x28]
+    1e06:	f2 0f 59 45 b0       	mulsd  xmm0,QWORD PTR [rbp-0x50]
+    1e0b:	f2 0f 11 45 a8       	movsd  QWORD PTR [rbp-0x58],xmm0
+            cj = aj+bj;
+    1e10:	f2 0f 10 45 a0       	movsd  xmm0,QWORD PTR [rbp-0x60]
+    1e15:	f2 0f 58 45 a8       	addsd  xmm0,QWORD PTR [rbp-0x58]
+    1e1a:	f2 0f 11 45 b0       	movsd  QWORD PTR [rbp-0x50],xmm0
+            aj = bj+scalar*cj;
+    1e1f:	f2 0f 10 45 d8       	movsd  xmm0,QWORD PTR [rbp-0x28]
+    1e24:	f2 0f 59 45 b0       	mulsd  xmm0,QWORD PTR [rbp-0x50]
+    1e29:	f2 0f 10 4d a8       	movsd  xmm1,QWORD PTR [rbp-0x58]
+    1e2e:	f2 0f 58 c1          	addsd  xmm0,xmm1
+    1e32:	f2 0f 11 45 a0       	movsd  QWORD PTR [rbp-0x60],xmm0
+	for (k=0; k<NTIMES; k++)
+    1e37:	83 45 94 01          	add    DWORD PTR [rbp-0x6c],0x1
+    1e3b:	83 7d 94 13          	cmp    DWORD PTR [rbp-0x6c],0x13
+    1e3f:	7e b6                	jle    1df7 <checkSTREAMresults+0x53>
+        }
+
+    /* accumulate deltas between observed and expected results */
+	aSumErr = 0.0;
+    1e41:	66 0f ef c0          	pxor   xmm0,xmm0
+    1e45:	f2 0f 11 45 b8       	movsd  QWORD PTR [rbp-0x48],xmm0
+	bSumErr = 0.0;
+    1e4a:	66 0f ef c0          	pxor   xmm0,xmm0
+    1e4e:	f2 0f 11 45 c0       	movsd  QWORD PTR [rbp-0x40],xmm0
+	cSumErr = 0.0;
+    1e53:	66 0f ef c0          	pxor   xmm0,xmm0
+    1e57:	f2 0f 11 45 c8       	movsd  QWORD PTR [rbp-0x38],xmm0
+	for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    1e5c:	48 c7 45 d0 00 00 00 	mov    QWORD PTR [rbp-0x30],0x0
+    1e63:	00 
+    1e64:	e9 7c 01 00 00       	jmp    1fe5 <checkSTREAMresults+0x241>
+		aSumErr += abs(a[j] - aj);
+    1e69:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1e6d:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1e74:	00 
+    1e75:	48 8d 05 24 32 00 00 	lea    rax,[rip+0x3224]        # 50a0 <a>
+    1e7c:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1e81:	f2 0f 5c 45 a0       	subsd  xmm0,QWORD PTR [rbp-0x60]
+    1e86:	66 0f ef c9          	pxor   xmm1,xmm1
+    1e8a:	66 0f 2f c1          	comisd xmm0,xmm1
+    1e8e:	72 1f                	jb     1eaf <checkSTREAMresults+0x10b>
+    1e90:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1e94:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1e9b:	00 
+    1e9c:	48 8d 05 fd 31 00 00 	lea    rax,[rip+0x31fd]        # 50a0 <a>
+    1ea3:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1ea8:	f2 0f 5c 45 a0       	subsd  xmm0,QWORD PTR [rbp-0x60]
+    1ead:	eb 29                	jmp    1ed8 <checkSTREAMresults+0x134>
+    1eaf:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1eb3:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1eba:	00 
+    1ebb:	48 8d 05 de 31 00 00 	lea    rax,[rip+0x31de]        # 50a0 <a>
+    1ec2:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1ec7:	f2 0f 5c 45 a0       	subsd  xmm0,QWORD PTR [rbp-0x60]
+    1ecc:	f3 0f 7e 0d bc 17 00 	movq   xmm1,QWORD PTR [rip+0x17bc]        # 3690 <_IO_stdin_used+0x690>
+    1ed3:	00 
+    1ed4:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    1ed8:	f2 0f 10 4d b8       	movsd  xmm1,QWORD PTR [rbp-0x48]
+    1edd:	f2 0f 58 c1          	addsd  xmm0,xmm1
+    1ee1:	f2 0f 11 45 b8       	movsd  QWORD PTR [rbp-0x48],xmm0
+		bSumErr += abs(b[j] - bj);
+    1ee6:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1eea:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1ef1:	00 
+    1ef2:	48 8d 05 a7 d1 25 26 	lea    rax,[rip+0x2625d1a7]        # 2625f0a0 <b>
+    1ef9:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1efe:	f2 0f 5c 45 a8       	subsd  xmm0,QWORD PTR [rbp-0x58]
+    1f03:	66 0f ef c9          	pxor   xmm1,xmm1
+    1f07:	66 0f 2f c1          	comisd xmm0,xmm1
+    1f0b:	72 1f                	jb     1f2c <checkSTREAMresults+0x188>
+    1f0d:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1f11:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1f18:	00 
+    1f19:	48 8d 05 80 d1 25 26 	lea    rax,[rip+0x2625d180]        # 2625f0a0 <b>
+    1f20:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1f25:	f2 0f 5c 45 a8       	subsd  xmm0,QWORD PTR [rbp-0x58]
+    1f2a:	eb 29                	jmp    1f55 <checkSTREAMresults+0x1b1>
+    1f2c:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1f30:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1f37:	00 
+    1f38:	48 8d 05 61 d1 25 26 	lea    rax,[rip+0x2625d161]        # 2625f0a0 <b>
+    1f3f:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1f44:	f2 0f 5c 45 a8       	subsd  xmm0,QWORD PTR [rbp-0x58]
+    1f49:	f3 0f 7e 0d 3f 17 00 	movq   xmm1,QWORD PTR [rip+0x173f]        # 3690 <_IO_stdin_used+0x690>
+    1f50:	00 
+    1f51:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    1f55:	f2 0f 10 4d c0       	movsd  xmm1,QWORD PTR [rbp-0x40]
+    1f5a:	f2 0f 58 c1          	addsd  xmm0,xmm1
+    1f5e:	f2 0f 11 45 c0       	movsd  QWORD PTR [rbp-0x40],xmm0
+		cSumErr += abs(c[j] - cj);
+    1f63:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1f67:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1f6e:	00 
+    1f6f:	48 8d 05 2a 71 4b 4c 	lea    rax,[rip+0x4c4b712a]        # 4c4b90a0 <c>
+    1f76:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1f7b:	f2 0f 5c 45 b0       	subsd  xmm0,QWORD PTR [rbp-0x50]
+    1f80:	66 0f ef c9          	pxor   xmm1,xmm1
+    1f84:	66 0f 2f c1          	comisd xmm0,xmm1
+    1f88:	72 1f                	jb     1fa9 <checkSTREAMresults+0x205>
+    1f8a:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1f8e:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1f95:	00 
+    1f96:	48 8d 05 03 71 4b 4c 	lea    rax,[rip+0x4c4b7103]        # 4c4b90a0 <c>
+    1f9d:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1fa2:	f2 0f 5c 45 b0       	subsd  xmm0,QWORD PTR [rbp-0x50]
+    1fa7:	eb 29                	jmp    1fd2 <checkSTREAMresults+0x22e>
+    1fa9:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    1fad:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    1fb4:	00 
+    1fb5:	48 8d 05 e4 70 4b 4c 	lea    rax,[rip+0x4c4b70e4]        # 4c4b90a0 <c>
+    1fbc:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    1fc1:	f2 0f 5c 45 b0       	subsd  xmm0,QWORD PTR [rbp-0x50]
+    1fc6:	f3 0f 7e 0d c2 16 00 	movq   xmm1,QWORD PTR [rip+0x16c2]        # 3690 <_IO_stdin_used+0x690>
+    1fcd:	00 
+    1fce:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    1fd2:	f2 0f 10 4d c8       	movsd  xmm1,QWORD PTR [rbp-0x38]
+    1fd7:	f2 0f 58 c1          	addsd  xmm0,xmm1
+    1fdb:	f2 0f 11 45 c8       	movsd  QWORD PTR [rbp-0x38],xmm0
+	for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    1fe0:	48 83 45 d0 01       	add    QWORD PTR [rbp-0x30],0x1
+    1fe5:	48 81 7d d0 ff b3 c4 	cmp    QWORD PTR [rbp-0x30],0x4c4b3ff
+    1fec:	04 
+    1fed:	0f 8e 76 fe ff ff    	jle    1e69 <checkSTREAMresults+0xc5>
+		// if (j == 417) printf("Index 417: c[j]: %f, cj: %f\n",c[j],cj);	// MCCALPIN
+	}
+	aAvgErr = aSumErr / (STREAM_TYPE) STREAM_ARRAY_SIZE;
+    1ff3:	f2 0f 10 45 b8       	movsd  xmm0,QWORD PTR [rbp-0x48]
+    1ff8:	f2 0f 10 0d a0 16 00 	movsd  xmm1,QWORD PTR [rip+0x16a0]        # 36a0 <_IO_stdin_used+0x6a0>
+    1fff:	00 
+    2000:	f2 0f 5e c1          	divsd  xmm0,xmm1
+    2004:	f2 0f 11 45 e0       	movsd  QWORD PTR [rbp-0x20],xmm0
+	bAvgErr = bSumErr / (STREAM_TYPE) STREAM_ARRAY_SIZE;
+    2009:	f2 0f 10 45 c0       	movsd  xmm0,QWORD PTR [rbp-0x40]
+    200e:	f2 0f 10 0d 8a 16 00 	movsd  xmm1,QWORD PTR [rip+0x168a]        # 36a0 <_IO_stdin_used+0x6a0>
+    2015:	00 
+    2016:	f2 0f 5e c1          	divsd  xmm0,xmm1
+    201a:	f2 0f 11 45 e8       	movsd  QWORD PTR [rbp-0x18],xmm0
+	cAvgErr = cSumErr / (STREAM_TYPE) STREAM_ARRAY_SIZE;
+    201f:	f2 0f 10 45 c8       	movsd  xmm0,QWORD PTR [rbp-0x38]
+    2024:	f2 0f 10 0d 74 16 00 	movsd  xmm1,QWORD PTR [rip+0x1674]        # 36a0 <_IO_stdin_used+0x6a0>
+    202b:	00 
+    202c:	f2 0f 5e c1          	divsd  xmm0,xmm1
+    2030:	f2 0f 11 45 f0       	movsd  QWORD PTR [rbp-0x10],xmm0
+
+	if (sizeof(STREAM_TYPE) == 4) {
+		epsilon = 1.e-6;
+	}
+	else if (sizeof(STREAM_TYPE) == 8) {
+		epsilon = 1.e-13;
+    2035:	f2 0f 10 05 6b 16 00 	movsd  xmm0,QWORD PTR [rip+0x166b]        # 36a8 <_IO_stdin_used+0x6a8>
+    203c:	00 
+    203d:	f2 0f 11 45 f8       	movsd  QWORD PTR [rbp-0x8],xmm0
+	else {
+		printf("WEIRD: sizeof(STREAM_TYPE) = %lu\n",sizeof(STREAM_TYPE));
+		epsilon = 1.e-6;
+	}
+
+	err = 0;
+    2042:	c7 45 9c 00 00 00 00 	mov    DWORD PTR [rbp-0x64],0x0
+	if (abs(aAvgErr/aj) > epsilon) {
+    2049:	f2 0f 10 45 e0       	movsd  xmm0,QWORD PTR [rbp-0x20]
+    204e:	f2 0f 5e 45 a0       	divsd  xmm0,QWORD PTR [rbp-0x60]
+    2053:	66 0f ef c9          	pxor   xmm1,xmm1
+    2057:	66 0f 2f c1          	comisd xmm0,xmm1
+    205b:	72 0c                	jb     2069 <checkSTREAMresults+0x2c5>
+    205d:	f2 0f 10 45 e0       	movsd  xmm0,QWORD PTR [rbp-0x20]
+    2062:	f2 0f 5e 45 a0       	divsd  xmm0,QWORD PTR [rbp-0x60]
+    2067:	eb 16                	jmp    207f <checkSTREAMresults+0x2db>
+    2069:	f2 0f 10 45 e0       	movsd  xmm0,QWORD PTR [rbp-0x20]
+    206e:	f2 0f 5e 45 a0       	divsd  xmm0,QWORD PTR [rbp-0x60]
+    2073:	f3 0f 7e 0d 15 16 00 	movq   xmm1,QWORD PTR [rip+0x1615]        # 3690 <_IO_stdin_used+0x690>
+    207a:	00 
+    207b:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    207f:	66 0f 2f 45 f8       	comisd xmm0,QWORD PTR [rbp-0x8]
+    2084:	0f 86 50 01 00 00    	jbe    21da <checkSTREAMresults+0x436>
+		err++;
+    208a:	83 45 9c 01          	add    DWORD PTR [rbp-0x64],0x1
+		printf ("Failed Validation on array a[], AvgRelAbsErr > epsilon (%e)\n",epsilon);
+    208e:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+    2092:	66 48 0f 6e c0       	movq   xmm0,rax
+    2097:	48 8d 3d b2 13 00 00 	lea    rdi,[rip+0x13b2]        # 3450 <_IO_stdin_used+0x450>
+    209e:	b8 01 00 00 00       	mov    eax,0x1
+    20a3:	e8 f8 ef ff ff       	call   10a0 <printf@plt>
+		printf ("     Expected Value: %e, AvgAbsErr: %e, AvgRelAbsErr: %e\n",aj,aAvgErr,abs(aAvgErr)/aj);
+    20a8:	f2 0f 10 45 e0       	movsd  xmm0,QWORD PTR [rbp-0x20]
+    20ad:	66 0f ef c9          	pxor   xmm1,xmm1
+    20b1:	66 0f 2f c1          	comisd xmm0,xmm1
+    20b5:	72 07                	jb     20be <checkSTREAMresults+0x31a>
+    20b7:	f2 0f 10 45 e0       	movsd  xmm0,QWORD PTR [rbp-0x20]
+    20bc:	eb 11                	jmp    20cf <checkSTREAMresults+0x32b>
+    20be:	f2 0f 10 45 e0       	movsd  xmm0,QWORD PTR [rbp-0x20]
+    20c3:	f3 0f 7e 0d c5 15 00 	movq   xmm1,QWORD PTR [rip+0x15c5]        # 3690 <_IO_stdin_used+0x690>
+    20ca:	00 
+    20cb:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    20cf:	66 0f 28 c8          	movapd xmm1,xmm0
+    20d3:	f2 0f 5e 4d a0       	divsd  xmm1,QWORD PTR [rbp-0x60]
+    20d8:	f2 0f 10 45 e0       	movsd  xmm0,QWORD PTR [rbp-0x20]
+    20dd:	48 8b 45 a0          	mov    rax,QWORD PTR [rbp-0x60]
+    20e1:	66 0f 28 d1          	movapd xmm2,xmm1
+    20e5:	66 0f 28 c8          	movapd xmm1,xmm0
+    20e9:	66 48 0f 6e c0       	movq   xmm0,rax
+    20ee:	48 8d 3d 9b 13 00 00 	lea    rdi,[rip+0x139b]        # 3490 <_IO_stdin_used+0x490>
+    20f5:	b8 03 00 00 00       	mov    eax,0x3
+    20fa:	e8 a1 ef ff ff       	call   10a0 <printf@plt>
+		ierr = 0;
+    20ff:	c7 45 98 00 00 00 00 	mov    DWORD PTR [rbp-0x68],0x0
+		for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    2106:	48 c7 45 d0 00 00 00 	mov    QWORD PTR [rbp-0x30],0x0
+    210d:	00 
+    210e:	e9 a3 00 00 00       	jmp    21b6 <checkSTREAMresults+0x412>
+			if (abs(a[j]/aj-1.0) > epsilon) {
+    2113:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    2117:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    211e:	00 
+    211f:	48 8d 05 7a 2f 00 00 	lea    rax,[rip+0x2f7a]        # 50a0 <a>
+    2126:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    212b:	f2 0f 5e 45 a0       	divsd  xmm0,QWORD PTR [rbp-0x60]
+    2130:	f2 0f 10 0d 28 15 00 	movsd  xmm1,QWORD PTR [rip+0x1528]        # 3660 <_IO_stdin_used+0x660>
+    2137:	00 
+    2138:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    213c:	66 0f ef c9          	pxor   xmm1,xmm1
+    2140:	66 0f 2f c1          	comisd xmm0,xmm1
+    2144:	72 2b                	jb     2171 <checkSTREAMresults+0x3cd>
+    2146:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    214a:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    2151:	00 
+    2152:	48 8d 05 47 2f 00 00 	lea    rax,[rip+0x2f47]        # 50a0 <a>
+    2159:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    215e:	f2 0f 5e 45 a0       	divsd  xmm0,QWORD PTR [rbp-0x60]
+    2163:	f2 0f 10 0d f5 14 00 	movsd  xmm1,QWORD PTR [rip+0x14f5]        # 3660 <_IO_stdin_used+0x660>
+    216a:	00 
+    216b:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    216f:	eb 35                	jmp    21a6 <checkSTREAMresults+0x402>
+    2171:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    2175:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    217c:	00 
+    217d:	48 8d 05 1c 2f 00 00 	lea    rax,[rip+0x2f1c]        # 50a0 <a>
+    2184:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    2189:	f2 0f 5e 45 a0       	divsd  xmm0,QWORD PTR [rbp-0x60]
+    218e:	f2 0f 10 0d ca 14 00 	movsd  xmm1,QWORD PTR [rip+0x14ca]        # 3660 <_IO_stdin_used+0x660>
+    2195:	00 
+    2196:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    219a:	f3 0f 7e 0d ee 14 00 	movq   xmm1,QWORD PTR [rip+0x14ee]        # 3690 <_IO_stdin_used+0x690>
+    21a1:	00 
+    21a2:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    21a6:	66 0f 2f 45 f8       	comisd xmm0,QWORD PTR [rbp-0x8]
+    21ab:	76 04                	jbe    21b1 <checkSTREAMresults+0x40d>
+				ierr++;
+    21ad:	83 45 98 01          	add    DWORD PTR [rbp-0x68],0x1
+		for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    21b1:	48 83 45 d0 01       	add    QWORD PTR [rbp-0x30],0x1
+    21b6:	48 81 7d d0 ff b3 c4 	cmp    QWORD PTR [rbp-0x30],0x4c4b3ff
+    21bd:	04 
+    21be:	0f 8e 4f ff ff ff    	jle    2113 <checkSTREAMresults+0x36f>
+						j,aj,a[j],abs((aj-a[j])/aAvgErr));
+				}
+#endif
+			}
+		}
+		printf("     For array a[], %d errors were found.\n",ierr);
+    21c4:	8b 45 98             	mov    eax,DWORD PTR [rbp-0x68]
+    21c7:	89 c6                	mov    esi,eax
+    21c9:	48 8d 3d 00 13 00 00 	lea    rdi,[rip+0x1300]        # 34d0 <_IO_stdin_used+0x4d0>
+    21d0:	b8 00 00 00 00       	mov    eax,0x0
+    21d5:	e8 c6 ee ff ff       	call   10a0 <printf@plt>
+	}
+	if (abs(bAvgErr/bj) > epsilon) {
+    21da:	f2 0f 10 45 e8       	movsd  xmm0,QWORD PTR [rbp-0x18]
+    21df:	f2 0f 5e 45 a8       	divsd  xmm0,QWORD PTR [rbp-0x58]
+    21e4:	66 0f ef c9          	pxor   xmm1,xmm1
+    21e8:	66 0f 2f c1          	comisd xmm0,xmm1
+    21ec:	72 0c                	jb     21fa <checkSTREAMresults+0x456>
+    21ee:	f2 0f 10 45 e8       	movsd  xmm0,QWORD PTR [rbp-0x18]
+    21f3:	f2 0f 5e 45 a8       	divsd  xmm0,QWORD PTR [rbp-0x58]
+    21f8:	eb 16                	jmp    2210 <checkSTREAMresults+0x46c>
+    21fa:	f2 0f 10 45 e8       	movsd  xmm0,QWORD PTR [rbp-0x18]
+    21ff:	f2 0f 5e 45 a8       	divsd  xmm0,QWORD PTR [rbp-0x58]
+    2204:	f3 0f 7e 0d 84 14 00 	movq   xmm1,QWORD PTR [rip+0x1484]        # 3690 <_IO_stdin_used+0x690>
+    220b:	00 
+    220c:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    2210:	66 0f 2f 45 f8       	comisd xmm0,QWORD PTR [rbp-0x8]
+    2215:	0f 86 6a 01 00 00    	jbe    2385 <checkSTREAMresults+0x5e1>
+		err++;
+    221b:	83 45 9c 01          	add    DWORD PTR [rbp-0x64],0x1
+		printf ("Failed Validation on array b[], AvgRelAbsErr > epsilon (%e)\n",epsilon);
+    221f:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+    2223:	66 48 0f 6e c0       	movq   xmm0,rax
+    2228:	48 8d 3d d1 12 00 00 	lea    rdi,[rip+0x12d1]        # 3500 <_IO_stdin_used+0x500>
+    222f:	b8 01 00 00 00       	mov    eax,0x1
+    2234:	e8 67 ee ff ff       	call   10a0 <printf@plt>
+		printf ("     Expected Value: %e, AvgAbsErr: %e, AvgRelAbsErr: %e\n",bj,bAvgErr,abs(bAvgErr)/bj);
+    2239:	f2 0f 10 45 e8       	movsd  xmm0,QWORD PTR [rbp-0x18]
+    223e:	66 0f ef c9          	pxor   xmm1,xmm1
+    2242:	66 0f 2f c1          	comisd xmm0,xmm1
+    2246:	72 07                	jb     224f <checkSTREAMresults+0x4ab>
+    2248:	f2 0f 10 45 e8       	movsd  xmm0,QWORD PTR [rbp-0x18]
+    224d:	eb 11                	jmp    2260 <checkSTREAMresults+0x4bc>
+    224f:	f2 0f 10 45 e8       	movsd  xmm0,QWORD PTR [rbp-0x18]
+    2254:	f3 0f 7e 0d 34 14 00 	movq   xmm1,QWORD PTR [rip+0x1434]        # 3690 <_IO_stdin_used+0x690>
+    225b:	00 
+    225c:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    2260:	66 0f 28 c8          	movapd xmm1,xmm0
+    2264:	f2 0f 5e 4d a8       	divsd  xmm1,QWORD PTR [rbp-0x58]
+    2269:	f2 0f 10 45 e8       	movsd  xmm0,QWORD PTR [rbp-0x18]
+    226e:	48 8b 45 a8          	mov    rax,QWORD PTR [rbp-0x58]
+    2272:	66 0f 28 d1          	movapd xmm2,xmm1
+    2276:	66 0f 28 c8          	movapd xmm1,xmm0
+    227a:	66 48 0f 6e c0       	movq   xmm0,rax
+    227f:	48 8d 3d 0a 12 00 00 	lea    rdi,[rip+0x120a]        # 3490 <_IO_stdin_used+0x490>
+    2286:	b8 03 00 00 00       	mov    eax,0x3
+    228b:	e8 10 ee ff ff       	call   10a0 <printf@plt>
+		printf ("     AvgRelAbsErr > Epsilon (%e)\n",epsilon);
+    2290:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+    2294:	66 48 0f 6e c0       	movq   xmm0,rax
+    2299:	48 8d 3d a0 12 00 00 	lea    rdi,[rip+0x12a0]        # 3540 <_IO_stdin_used+0x540>
+    22a0:	b8 01 00 00 00       	mov    eax,0x1
+    22a5:	e8 f6 ed ff ff       	call   10a0 <printf@plt>
+		ierr = 0;
+    22aa:	c7 45 98 00 00 00 00 	mov    DWORD PTR [rbp-0x68],0x0
+		for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    22b1:	48 c7 45 d0 00 00 00 	mov    QWORD PTR [rbp-0x30],0x0
+    22b8:	00 
+    22b9:	e9 a3 00 00 00       	jmp    2361 <checkSTREAMresults+0x5bd>
+			if (abs(b[j]/bj-1.0) > epsilon) {
+    22be:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    22c2:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    22c9:	00 
+    22ca:	48 8d 05 cf cd 25 26 	lea    rax,[rip+0x2625cdcf]        # 2625f0a0 <b>
+    22d1:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    22d6:	f2 0f 5e 45 a8       	divsd  xmm0,QWORD PTR [rbp-0x58]
+    22db:	f2 0f 10 0d 7d 13 00 	movsd  xmm1,QWORD PTR [rip+0x137d]        # 3660 <_IO_stdin_used+0x660>
+    22e2:	00 
+    22e3:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    22e7:	66 0f ef c9          	pxor   xmm1,xmm1
+    22eb:	66 0f 2f c1          	comisd xmm0,xmm1
+    22ef:	72 2b                	jb     231c <checkSTREAMresults+0x578>
+    22f1:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    22f5:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    22fc:	00 
+    22fd:	48 8d 05 9c cd 25 26 	lea    rax,[rip+0x2625cd9c]        # 2625f0a0 <b>
+    2304:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    2309:	f2 0f 5e 45 a8       	divsd  xmm0,QWORD PTR [rbp-0x58]
+    230e:	f2 0f 10 0d 4a 13 00 	movsd  xmm1,QWORD PTR [rip+0x134a]        # 3660 <_IO_stdin_used+0x660>
+    2315:	00 
+    2316:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    231a:	eb 35                	jmp    2351 <checkSTREAMresults+0x5ad>
+    231c:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    2320:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    2327:	00 
+    2328:	48 8d 05 71 cd 25 26 	lea    rax,[rip+0x2625cd71]        # 2625f0a0 <b>
+    232f:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    2334:	f2 0f 5e 45 a8       	divsd  xmm0,QWORD PTR [rbp-0x58]
+    2339:	f2 0f 10 0d 1f 13 00 	movsd  xmm1,QWORD PTR [rip+0x131f]        # 3660 <_IO_stdin_used+0x660>
+    2340:	00 
+    2341:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    2345:	f3 0f 7e 0d 43 13 00 	movq   xmm1,QWORD PTR [rip+0x1343]        # 3690 <_IO_stdin_used+0x690>
+    234c:	00 
+    234d:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    2351:	66 0f 2f 45 f8       	comisd xmm0,QWORD PTR [rbp-0x8]
+    2356:	76 04                	jbe    235c <checkSTREAMresults+0x5b8>
+				ierr++;
+    2358:	83 45 98 01          	add    DWORD PTR [rbp-0x68],0x1
+		for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    235c:	48 83 45 d0 01       	add    QWORD PTR [rbp-0x30],0x1
+    2361:	48 81 7d d0 ff b3 c4 	cmp    QWORD PTR [rbp-0x30],0x4c4b3ff
+    2368:	04 
+    2369:	0f 8e 4f ff ff ff    	jle    22be <checkSTREAMresults+0x51a>
+						j,bj,b[j],abs((bj-b[j])/bAvgErr));
+				}
+#endif
+			}
+		}
+		printf("     For array b[], %d errors were found.\n",ierr);
+    236f:	8b 45 98             	mov    eax,DWORD PTR [rbp-0x68]
+    2372:	89 c6                	mov    esi,eax
+    2374:	48 8d 3d ed 11 00 00 	lea    rdi,[rip+0x11ed]        # 3568 <_IO_stdin_used+0x568>
+    237b:	b8 00 00 00 00       	mov    eax,0x0
+    2380:	e8 1b ed ff ff       	call   10a0 <printf@plt>
+	}
+	if (abs(cAvgErr/cj) > epsilon) {
+    2385:	f2 0f 10 45 f0       	movsd  xmm0,QWORD PTR [rbp-0x10]
+    238a:	f2 0f 5e 45 b0       	divsd  xmm0,QWORD PTR [rbp-0x50]
+    238f:	66 0f ef c9          	pxor   xmm1,xmm1
+    2393:	66 0f 2f c1          	comisd xmm0,xmm1
+    2397:	72 0c                	jb     23a5 <checkSTREAMresults+0x601>
+    2399:	f2 0f 10 45 f0       	movsd  xmm0,QWORD PTR [rbp-0x10]
+    239e:	f2 0f 5e 45 b0       	divsd  xmm0,QWORD PTR [rbp-0x50]
+    23a3:	eb 16                	jmp    23bb <checkSTREAMresults+0x617>
+    23a5:	f2 0f 10 45 f0       	movsd  xmm0,QWORD PTR [rbp-0x10]
+    23aa:	f2 0f 5e 45 b0       	divsd  xmm0,QWORD PTR [rbp-0x50]
+    23af:	f3 0f 7e 0d d9 12 00 	movq   xmm1,QWORD PTR [rip+0x12d9]        # 3690 <_IO_stdin_used+0x690>
+    23b6:	00 
+    23b7:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    23bb:	66 0f 2f 45 f8       	comisd xmm0,QWORD PTR [rbp-0x8]
+    23c0:	0f 86 6a 01 00 00    	jbe    2530 <checkSTREAMresults+0x78c>
+		err++;
+    23c6:	83 45 9c 01          	add    DWORD PTR [rbp-0x64],0x1
+		printf ("Failed Validation on array c[], AvgRelAbsErr > epsilon (%e)\n",epsilon);
+    23ca:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+    23ce:	66 48 0f 6e c0       	movq   xmm0,rax
+    23d3:	48 8d 3d be 11 00 00 	lea    rdi,[rip+0x11be]        # 3598 <_IO_stdin_used+0x598>
+    23da:	b8 01 00 00 00       	mov    eax,0x1
+    23df:	e8 bc ec ff ff       	call   10a0 <printf@plt>
+		printf ("     Expected Value: %e, AvgAbsErr: %e, AvgRelAbsErr: %e\n",cj,cAvgErr,abs(cAvgErr)/cj);
+    23e4:	f2 0f 10 45 f0       	movsd  xmm0,QWORD PTR [rbp-0x10]
+    23e9:	66 0f ef c9          	pxor   xmm1,xmm1
+    23ed:	66 0f 2f c1          	comisd xmm0,xmm1
+    23f1:	72 07                	jb     23fa <checkSTREAMresults+0x656>
+    23f3:	f2 0f 10 45 f0       	movsd  xmm0,QWORD PTR [rbp-0x10]
+    23f8:	eb 11                	jmp    240b <checkSTREAMresults+0x667>
+    23fa:	f2 0f 10 45 f0       	movsd  xmm0,QWORD PTR [rbp-0x10]
+    23ff:	f3 0f 7e 0d 89 12 00 	movq   xmm1,QWORD PTR [rip+0x1289]        # 3690 <_IO_stdin_used+0x690>
+    2406:	00 
+    2407:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    240b:	66 0f 28 c8          	movapd xmm1,xmm0
+    240f:	f2 0f 5e 4d b0       	divsd  xmm1,QWORD PTR [rbp-0x50]
+    2414:	f2 0f 10 45 f0       	movsd  xmm0,QWORD PTR [rbp-0x10]
+    2419:	48 8b 45 b0          	mov    rax,QWORD PTR [rbp-0x50]
+    241d:	66 0f 28 d1          	movapd xmm2,xmm1
+    2421:	66 0f 28 c8          	movapd xmm1,xmm0
+    2425:	66 48 0f 6e c0       	movq   xmm0,rax
+    242a:	48 8d 3d 5f 10 00 00 	lea    rdi,[rip+0x105f]        # 3490 <_IO_stdin_used+0x490>
+    2431:	b8 03 00 00 00       	mov    eax,0x3
+    2436:	e8 65 ec ff ff       	call   10a0 <printf@plt>
+		printf ("     AvgRelAbsErr > Epsilon (%e)\n",epsilon);
+    243b:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+    243f:	66 48 0f 6e c0       	movq   xmm0,rax
+    2444:	48 8d 3d f5 10 00 00 	lea    rdi,[rip+0x10f5]        # 3540 <_IO_stdin_used+0x540>
+    244b:	b8 01 00 00 00       	mov    eax,0x1
+    2450:	e8 4b ec ff ff       	call   10a0 <printf@plt>
+		ierr = 0;
+    2455:	c7 45 98 00 00 00 00 	mov    DWORD PTR [rbp-0x68],0x0
+		for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    245c:	48 c7 45 d0 00 00 00 	mov    QWORD PTR [rbp-0x30],0x0
+    2463:	00 
+    2464:	e9 a3 00 00 00       	jmp    250c <checkSTREAMresults+0x768>
+			if (abs(c[j]/cj-1.0) > epsilon) {
+    2469:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    246d:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    2474:	00 
+    2475:	48 8d 05 24 6c 4b 4c 	lea    rax,[rip+0x4c4b6c24]        # 4c4b90a0 <c>
+    247c:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    2481:	f2 0f 5e 45 b0       	divsd  xmm0,QWORD PTR [rbp-0x50]
+    2486:	f2 0f 10 0d d2 11 00 	movsd  xmm1,QWORD PTR [rip+0x11d2]        # 3660 <_IO_stdin_used+0x660>
+    248d:	00 
+    248e:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    2492:	66 0f ef c9          	pxor   xmm1,xmm1
+    2496:	66 0f 2f c1          	comisd xmm0,xmm1
+    249a:	72 2b                	jb     24c7 <checkSTREAMresults+0x723>
+    249c:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    24a0:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    24a7:	00 
+    24a8:	48 8d 05 f1 6b 4b 4c 	lea    rax,[rip+0x4c4b6bf1]        # 4c4b90a0 <c>
+    24af:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    24b4:	f2 0f 5e 45 b0       	divsd  xmm0,QWORD PTR [rbp-0x50]
+    24b9:	f2 0f 10 0d 9f 11 00 	movsd  xmm1,QWORD PTR [rip+0x119f]        # 3660 <_IO_stdin_used+0x660>
+    24c0:	00 
+    24c1:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    24c5:	eb 35                	jmp    24fc <checkSTREAMresults+0x758>
+    24c7:	48 8b 45 d0          	mov    rax,QWORD PTR [rbp-0x30]
+    24cb:	48 8d 14 c5 00 00 00 	lea    rdx,[rax*8+0x0]
+    24d2:	00 
+    24d3:	48 8d 05 c6 6b 4b 4c 	lea    rax,[rip+0x4c4b6bc6]        # 4c4b90a0 <c>
+    24da:	f2 0f 10 04 02       	movsd  xmm0,QWORD PTR [rdx+rax*1]
+    24df:	f2 0f 5e 45 b0       	divsd  xmm0,QWORD PTR [rbp-0x50]
+    24e4:	f2 0f 10 0d 74 11 00 	movsd  xmm1,QWORD PTR [rip+0x1174]        # 3660 <_IO_stdin_used+0x660>
+    24eb:	00 
+    24ec:	f2 0f 5c c1          	subsd  xmm0,xmm1
+    24f0:	f3 0f 7e 0d 98 11 00 	movq   xmm1,QWORD PTR [rip+0x1198]        # 3690 <_IO_stdin_used+0x690>
+    24f7:	00 
+    24f8:	66 0f 57 c1          	xorpd  xmm0,xmm1
+    24fc:	66 0f 2f 45 f8       	comisd xmm0,QWORD PTR [rbp-0x8]
+    2501:	76 04                	jbe    2507 <checkSTREAMresults+0x763>
+				ierr++;
+    2503:	83 45 98 01          	add    DWORD PTR [rbp-0x68],0x1
+		for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+    2507:	48 83 45 d0 01       	add    QWORD PTR [rbp-0x30],0x1
+    250c:	48 81 7d d0 ff b3 c4 	cmp    QWORD PTR [rbp-0x30],0x4c4b3ff
+    2513:	04 
+    2514:	0f 8e 4f ff ff ff    	jle    2469 <checkSTREAMresults+0x6c5>
+						j,cj,c[j],abs((cj-c[j])/cAvgErr));
+				}
+#endif
+			}
+		}
+		printf("     For array c[], %d errors were found.\n",ierr);
+    251a:	8b 45 98             	mov    eax,DWORD PTR [rbp-0x68]
+    251d:	89 c6                	mov    esi,eax
+    251f:	48 8d 3d b2 10 00 00 	lea    rdi,[rip+0x10b2]        # 35d8 <_IO_stdin_used+0x5d8>
+    2526:	b8 00 00 00 00       	mov    eax,0x0
+    252b:	e8 70 eb ff ff       	call   10a0 <printf@plt>
+	}
+	if (err == 0) {
+    2530:	83 7d 9c 00          	cmp    DWORD PTR [rbp-0x64],0x0
+    2534:	75 1a                	jne    2550 <checkSTREAMresults+0x7ac>
+		printf ("Solution Validates: avg error less than %e on all three arrays\n",epsilon);
+    2536:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+    253a:	66 48 0f 6e c0       	movq   xmm0,rax
+    253f:	48 8d 3d c2 10 00 00 	lea    rdi,[rip+0x10c2]        # 3608 <_IO_stdin_used+0x608>
+    2546:	b8 01 00 00 00       	mov    eax,0x1
+    254b:	e8 50 eb ff ff       	call   10a0 <printf@plt>
+	printf ("Results Validation Verbose Results: \n");
+	printf ("    Expected a(1), b(1), c(1): %f %f %f \n",aj,bj,cj);
+	printf ("    Observed a(1), b(1), c(1): %f %f %f \n",a[1],b[1],c[1]);
+	printf ("    Rel Errors on a, b, c:     %e %e %e \n",abs(aAvgErr/aj),abs(bAvgErr/bj),abs(cAvgErr/cj));
+#endif
+}
+    2550:	90                   	nop
+    2551:	c9                   	leave  
+    2552:	c3                   	ret    
+    2553:	66 2e 0f 1f 84 00 00 	nop    WORD PTR cs:[rax+rax*1+0x0]
+    255a:	00 00 00 
+    255d:	0f 1f 00             	nop    DWORD PTR [rax]
+
+0000000000002560 <__libc_csu_init>:
+    2560:	f3 0f 1e fa          	endbr64 
+    2564:	41 57                	push   r15
+    2566:	4c 8d 3d 33 28 00 00 	lea    r15,[rip+0x2833]        # 4da0 <__frame_dummy_init_array_entry>
+    256d:	41 56                	push   r14
+    256f:	49 89 d6             	mov    r14,rdx
+    2572:	41 55                	push   r13
+    2574:	49 89 f5             	mov    r13,rsi
+    2577:	41 54                	push   r12
+    2579:	41 89 fc             	mov    r12d,edi
+    257c:	55                   	push   rbp
+    257d:	48 8d 2d 24 28 00 00 	lea    rbp,[rip+0x2824]        # 4da8 <__do_global_dtors_aux_fini_array_entry>
+    2584:	53                   	push   rbx
+    2585:	4c 29 fd             	sub    rbp,r15
+    2588:	48 83 ec 08          	sub    rsp,0x8
+    258c:	e8 6f ea ff ff       	call   1000 <_init>
+    2591:	48 c1 fd 03          	sar    rbp,0x3
+    2595:	74 1f                	je     25b6 <__libc_csu_init+0x56>
+    2597:	31 db                	xor    ebx,ebx
+    2599:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+    25a0:	4c 89 f2             	mov    rdx,r14
+    25a3:	4c 89 ee             	mov    rsi,r13
+    25a6:	44 89 e7             	mov    edi,r12d
+    25a9:	41 ff 14 df          	call   QWORD PTR [r15+rbx*8]
+    25ad:	48 83 c3 01          	add    rbx,0x1
+    25b1:	48 39 dd             	cmp    rbp,rbx
+    25b4:	75 ea                	jne    25a0 <__libc_csu_init+0x40>
+    25b6:	48 83 c4 08          	add    rsp,0x8
+    25ba:	5b                   	pop    rbx
+    25bb:	5d                   	pop    rbp
+    25bc:	41 5c                	pop    r12
+    25be:	41 5d                	pop    r13
+    25c0:	41 5e                	pop    r14
+    25c2:	41 5f                	pop    r15
+    25c4:	c3                   	ret    
+    25c5:	66 66 2e 0f 1f 84 00 	data16 nop WORD PTR cs:[rax+rax*1+0x0]
+    25cc:	00 00 00 00 
+
+00000000000025d0 <__libc_csu_fini>:
+    25d0:	f3 0f 1e fa          	endbr64 
+    25d4:	c3                   	ret    
+
+Disassembly of section .fini:
+
+00000000000025d8 <_fini>:
+    25d8:	f3 0f 1e fa          	endbr64 
+    25dc:	48 83 ec 08          	sub    rsp,0x8
+    25e0:	48 83 c4 08          	add    rsp,0x8
+    25e4:	c3                   	ret    

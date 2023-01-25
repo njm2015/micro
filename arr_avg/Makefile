@@ -1,7 +1,6 @@
 LIKWID_LIB=/usr/local/lib/
 LIKWID_INCLUDE=/usr/local/incude/
 
-
 CC=gcc
 CFLAGS=-pg -g -DLIKWID_PERFMON -L$(LIKWID_LIB) -I$(LIKWID_INCLUDE)
 LDFLAGS=-llikwid -lpapi
